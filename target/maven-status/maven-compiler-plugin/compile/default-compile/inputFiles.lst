@@ -1,6 +1,7 @@
 C:\Users\Damasco\SpringBoot\appointment-system\src\main\java\com\appointment\system\advice\GlobalExceptionHandler.java
 C:\Users\Damasco\SpringBoot\appointment-system\src\main\java\com\appointment\system\AppointmentSystemApplication.java
 C:\Users\Damasco\SpringBoot\appointment-system\src\main\java\com\appointment\system\config\DataLoader.java
+C:\Users\Damasco\SpringBoot\appointment-system\src\main\java\com\appointment\system\config\PasswordConfig.java
 C:\Users\Damasco\SpringBoot\appointment-system\src\main\java\com\appointment\system\controller\BaseController.java
 C:\Users\Damasco\SpringBoot\appointment-system\src\main\java\com\appointment\system\controller\HomeController.java
 C:\Users\Damasco\SpringBoot\appointment-system\src\main\java\com\appointment\system\controller\UserController.java

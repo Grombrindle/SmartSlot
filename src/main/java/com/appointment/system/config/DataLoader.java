@@ -5,13 +5,19 @@ import com.appointment.system.model.User;
 import com.appointment.system.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DataLoader implements CommandLineRunner {
     
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+    private final BCryptPasswordEncoder passwordEncoder;
+
+    public DataLoader(UserRepository userRepository, BCryptPasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
     
     @Override
     public void run(String... args) throws Exception {
@@ -20,7 +26,7 @@ public class DataLoader implements CommandLineRunner {
             User admin = new User();
             admin.setName("Admin");
             admin.setEmail("admin@example.com");
-            admin.setPassword("password123"); // You should hash this!
+            admin.setPassword(passwordEncoder.encode("password123")); // hashed
             admin.setRole(UserRole.ADMIN);
             userRepository.save(admin);
         }

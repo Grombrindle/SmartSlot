@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.appointment.system.AppointmentSystemApplicationTests" time="7.387" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.appointment.system.service.UserServiceTest" time="0.075" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -68,59 +68,5 @@
     <property name="java.class.version" value="61.0"/>
     <property name="LOGGED_APPLICATION_NAME" value="[appointment-system] "/>
   </properties>
-  <testcase name="contextLoads" classname="com.appointment.system.AppointmentSystemApplicationTests" time="0.361">
-    <system-out><![CDATA[01:42:20.475 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.appointment.system.AppointmentSystemApplicationTests]: AppointmentSystemApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-01:42:20.581 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.appointment.system.AppointmentSystemApplication for test class com.appointment.system.AppointmentSystemApplicationTests
-
-  .   ____          _            __ _ _
- /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
-( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
- \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
-  '  |____| .__|_| |_|_| |_\__, | / / / /
- =========|_|==============|___/=/_/_/_/
-
- :: Spring Boot ::                (v4.0.1)
-
-2025-12-26T01:42:21.044+03:00  INFO 6336 --- [appointment-system] [           main] c.a.s.AppointmentSystemApplicationTests  : Starting AppointmentSystemApplicationTests using Java 17.0.15 with PID 6336 (started by Damasco in C:\Users\Damasco\SpringBoot\appointment-system)
-2025-12-26T01:42:21.046+03:00  INFO 6336 --- [appointment-system] [           main] c.a.s.AppointmentSystemApplicationTests  : No active profile set, falling back to 1 default profile: "default"
-2025-12-26T01:42:22.006+03:00  INFO 6336 --- [appointment-system] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-12-26T01:42:22.081+03:00  INFO 6336 --- [appointment-system] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 1 JPA repository interface.
-2025-12-26T01:42:22.781+03:00  INFO 6336 --- [appointment-system] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2025-12-26T01:42:22.871+03:00  INFO 6336 --- [appointment-system] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
-2025-12-26T01:42:23.512+03:00  INFO 6336 --- [appointment-system] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-12-26T01:42:23.555+03:00  INFO 6336 --- [appointment-system] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-12-26T01:42:23.755+03:00  INFO 6336 --- [appointment-system] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:appointmentsdb user=SA
-2025-12-26T01:42:23.757+03:00  INFO 6336 --- [appointment-system] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-12-26T01:42:23.781+03:00  WARN 6336 --- [appointment-system] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-26T01:42:23.804+03:00  INFO 6336 --- [appointment-system] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [jdbc:h2:mem:appointmentsdb]
-	Database driver: H2 JDBC Driver
-	Database dialect: H2Dialect
-	Database version: 2.4.240
-	Default catalog/schema: APPOINTMENTSDB/PUBLIC
-	Autocommit mode: undefined/unknown
-	Isolation level: READ_COMMITTED [default READ_COMMITTED]
-	JDBC fetch size: 100
-	Pool: DataSourceConnectionProvider
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-12-26T01:42:24.666+03:00  INFO 6336 --- [appointment-system] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-Hibernate: create table users (id bigint generated by default as identity, email varchar(255), name varchar(255), password varchar(255), role enum ('ADMIN','CUSTOMER','STAFF'), primary key (id))
-2025-12-26T01:42:24.736+03:00  INFO 6336 --- [appointment-system] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-12-26T01:42:24.845+03:00  INFO 6336 --- [appointment-system] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-12-26T01:42:25.136+03:00  WARN 6336 --- [appointment-system] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-12-26T01:42:25.830+03:00  INFO 6336 --- [appointment-system] [           main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:appointmentsdb'
-2025-12-26T01:42:25.912+03:00  WARN 6336 --- [appointment-system] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: fd63fc38-a989-4d02-8cda-9e98dd08116a
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2025-12-26T01:42:25.947+03:00  INFO 6336 --- [appointment-system] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2025-12-26T01:42:26.165+03:00  INFO 6336 --- [appointment-system] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2025-12-26T01:42:26.379+03:00  INFO 6336 --- [appointment-system] [           main] c.a.s.AppointmentSystemApplicationTests  : Started AppointmentSystemApplicationTests in 5.628 seconds (process running for 6.945)
-Hibernate: select u1_0.id,u1_0.email,u1_0.name,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
-Hibernate: insert into users (email,name,password,role,id) values (?,?,?,?,default)
-]]></system-out>
-  </testcase>
+  <testcase name="createUser_encodesPasswordBeforeSaving" classname="com.appointment.system.service.UserServiceTest" time="0.073"/>
 </testsuite>
