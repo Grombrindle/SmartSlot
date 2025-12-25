@@ -1,5 +1,6 @@
 package com.appointment.system.service;
 
+import com.appointment.system.exception.NotFoundException;
 import com.appointment.system.model.User;
 import com.appointment.system.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class UserService {
     
     public User getUserById(Long id) {
         return userRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new NotFoundException("User not found"));
     }
     
     // Add other business logic methods
