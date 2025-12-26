@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Appointments - Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        .sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: 250px; background-color: #f8f9fa; border-right: 1px solid #dee2e6; }
+        .main-content { margin-left: 250px; padding: 20px; }
+        .nav-link { color: #495057; padding: 10px 15px; border-radius: 5px; margin: 2px 0; }
+        .nav-link:hover { background-color: #e9ecef; color: #0d6efd; }
+        .nav-link.active { background-color: #0d6efd; color: white; }
+        .badge-pending { background-color: #ffc107; }
+        .badge-approved { background-color: #28a745; }
+        .badge-cancelled { background-color: #dc3545; }
+        .badge-completed { background-color: #17a2b8; }
+    </style>
+</head>
+<body>
+    <div class="sidebar d-flex flex-column">
+        <div class="p-3 border-bottom">
+            <h4 class="mb-0 text-primary"><i class="bi bi-calendar-check"></i> Appointment System</h4>
+            <small class="text-muted" sec:authentication="name"></small>
+        </div>
+        <nav class="nav flex-column p-3">
+            <h6 class="text-uppercase text-muted mb-2">Navigation</h6>
+            <a href="/dashboard" class="nav-link"><i class="bi bi-house"></i> Dashboard</a>
+            <div sec:authorize="hasRole('ADMIN')">
+                <hr class="my-2">
+                <h6 class="text-uppercase text-muted mb-2">Admin Panel</h6>
+                <a href="/admin/users" class="nav-link"><i class="bi bi-people"></i> Manage Users</a>
+                <a href="/admin/services" class="nav-link"><i class="bi bi-briefcase"></i> Manage Services</a>
+                <a href="/admin/schedules" class="nav-link"><i class="bi bi-clock"></i> Working Schedules</a>
+                <a href="/admin/appointments" class="nav-link active"><i class="bi bi-calendar-event"></i> All Appointments</a>
+            </div>
+            <div class="mt-auto p-3">
+                <form th:action="@{/logout}" method="post">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                    <button type="submit" class="btn btn-outline-danger w-100"><i class="bi bi-box-arrow-right"></i> Logout</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1><i class="bi bi-calendar-event"></i> All Appointments</h1>
+                <p class="text-muted">View and manage all system appointments</p>
+            </div>
+        </div>
+
+        <!-- Appointment Filters -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <div class="row g-3">
+                    <div class="col-md-3">
+                        <label class="form-label">Status</label>
+                        <select class="form-select" id="statusFilter">
+                            <option value="">All Statuses</option>
+                            <option value="PENDING">Pending</option>
+                            <option value="APPROVED">Approved</option>
+                            <option value="COMPLETED">Completed</option>
+                            <option value="CANCELLED">Cancelled</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Date From</label>
+                        <input type="date" class="form-control" id="dateFrom">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">Date To</label>
+                        <input type="date" class="form-control" id="dateTo">
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label">&nbsp;</label>
+                        <button class="btn btn-primary w-100" onclick="filterAppointments()">
+                            <i class="bi bi-filter"></i> Filter
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointments Table -->
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Appointments List</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Customer</th>
+                                <th>Staff</th>
+                                <th>Service</th>
+                                <th>Date & Time</th>
+                                <th>Duration</th>
+                                <th>Price</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="appointment : ${appointments}">
+                                <td th:text="${appointment.id}">#123</td>
+                                <td th:text="${appointment.customer.name}">John Doe</td>
+                                <td th:text="${appointment.staff.name}">Dr. Smith</td>
+                                <td th:text="${appointment.service.name}">Dental Cleaning</td>
+                                <td th:text="${#temporals.format(appointment.appointmentDateTime, 'yyyy-MM-dd HH:mm')}">2023-12-01 10:00 AM</td>
+                                <td th:text="${appointment.service.duration} + ' min'">60 min</td>
+                                <td th:text="'$' + ${#numbers.formatDecimal(appointment.service.price, 1, 2)}">$120.00</td>
+                                <td>
+                                    <span th:class="'badge ' + ${appointment.status == 'PENDING' ? 'badge-pending' : 
+                                                              appointment.status == 'APPROVED' ? 'badge-approved' :
+                                                              appointment.status == 'CANCELLED' ? 'badge-cancelled' : 'badge-completed'}">
+                                        <span th:text="${appointment.status}">Pending</span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button class="btn btn-sm btn-info" data-bs-toggle="modal" 
+                                                data-bs-target="#viewModal" th:attr="data-id=${appointment.id}">
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                        <button th:if="${appointment.status == 'PENDING'}" 
+                                                class="btn btn-sm btn-success" 
+                                                th:attr="onclick=|updateStatus(${appointment.id}, 'APPROVED')|">
+                                            <i class="bi bi-check"></i>
+                                        </button>
+                                        <button th:if="${appointment.status != 'CANCELLED'}" 
+                                                class="btn btn-sm btn-danger" 
+                                                th:attr="onclick=|updateStatus(${appointment.id}, 'CANCELLED')|">
+                                            <i class="bi bi-x"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointment Statistics -->
+        <div class="row mt-4">
+            <div class="col-md-3">
+                <div class="card border-primary">
+                    <div class="card-body text-center">
+                        <h3 th:text="${appointments.size()}">0</h3>
+                        <p class="text-muted">Total Appointments</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-warning">
+                    <div class="card-body text-center">
+                        <h3 th:text="${#lists.stream(appointments).filter(a -> a.status.name() == 'PENDING').count()}">0</h3>
+                        <p class="text-muted">Pending</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-success">
+                    <div class="card-body text-center">
+                        <h3 th:text="${#lists.stream(appointments).filter(a -> a.status.name() == 'APPROVED').count()}">0</h3>
+                        <p class="text-muted">Approved</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card border-info">
+                    <div class="card-body text-center">
+                        <h3 th:text="${#lists.stream(appointments).filter(a -> a.status.name() == 'COMPLETED').count()}">0</h3>
+                        <p class="text-muted">Completed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Appointment Modal -->
+    <div class="modal fade" id="viewModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-info text-white">
+                    <h5 class="modal-title">Appointment Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="appointmentDetails">
+                    <!-- Details will be loaded here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function filterAppointments() {
+            const status = document.getElementById('statusFilter').value;
+            const dateFrom = document.getElementById('dateFrom').value;
+            const dateTo = document.getElementById('dateTo').value;
+            
+            // In a real app, you would make an API call here
+            // For now, we'll just show an alert
+            alert('Filtering by: Status=' + status + ', From=' + dateFrom + ', To=' + dateTo);
+        }
+        
+        function updateStatus(appointmentId, status) {
+            if (confirm('Are you sure you want to update this appointment status?')) {
+                // In a real app, make API call to update status
+                fetch('/api/appointments/' + appointmentId + '/status', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': document.querySelector('input[name="_csrf"]').value
+                    },
+                    body: JSON.stringify({ status: status })
+                })
+                .then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        }
+        
+        // View Modal functionality
+        document.getElementById('viewModal').addEventListener('show.bs.modal', function(event) {
+            const button = event.relatedTarget;
+            const appointmentId = button.getAttribute('data-id');
+            
+            // In a real app, fetch appointment details from API
+            fetch('/api/appointments/' + appointmentId)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('appointmentDetails').innerHTML = `
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Customer Information</h6>
+                                <p><strong>Name:</strong> ${data.customerName}</p>
+                                <p><strong>Email:</strong> ${data.customerEmail}</p>
+                                <p><strong>Phone:</strong> ${data.customerPhone || 'N/A'}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Service Details</h6>
+                                <p><strong>Service:</strong> ${data.serviceName}</p>
+                                <p><strong>Duration:</strong> ${data.duration} minutes</p>
+                                <p><strong>Price:</strong> $${data.price}</p>
+                                <p><strong>Provider:</strong> ${data.staffName}</p>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <h6>Appointment Details</h6>
+                                <p><strong>Date & Time:</strong> ${new Date(data.appointmentDateTime).toLocaleString()}</p>
+                                <p><strong>Status:</strong> ${data.status}</p>
+                                <p><strong>Notes:</strong> ${data.notes || 'None'}</p>
+                            </div>
+                        </div>
+                    `;
+                })
+                .catch(error => {
+                    document.getElementById('appointmentDetails').innerHTML = 
+                        '<div class="alert alert-danger">Error loading appointment details</div>';
+                });
+        });
+    </script>
+</body>
+</html>

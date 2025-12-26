@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Working Schedules - Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        .sidebar { position: fixed; top: 0; left: 0; height: 100vh; width: 250px; background-color: #f8f9fa; border-right: 1px solid #dee2e6; }
+        .main-content { margin-left: 250px; padding: 20px; }
+        .nav-link { color: #495057; padding: 10px 15px; border-radius: 5px; margin: 2px 0; }
+        .nav-link:hover { background-color: #e9ecef; color: #0d6efd; }
+        .nav-link.active { background-color: #0d6efd; color: white; }
+    </style>
+</head>
+<body>
+    <div class="sidebar d-flex flex-column">
+        <div class="p-3 border-bottom">
+            <h4 class="mb-0 text-primary"><i class="bi bi-calendar-check"></i> Appointment System</h4>
+            <small class="text-muted" sec:authentication="name"></small>
+        </div>
+        <nav class="nav flex-column p-3">
+            <h6 class="text-uppercase text-muted mb-2">Navigation</h6>
+            <a href="/dashboard" class="nav-link"><i class="bi bi-house"></i> Dashboard</a>
+            <div sec:authorize="hasRole('ADMIN')">
+                <hr class="my-2">
+                <h6 class="text-uppercase text-muted mb-2">Admin Panel</h6>
+                <a href="/admin/users" class="nav-link"><i class="bi bi-people"></i> Manage Users</a>
+                <a href="/admin/services" class="nav-link"><i class="bi bi-briefcase"></i> Manage Services</a>
+                <a href="/admin/schedules" class="nav-link active"><i class="bi bi-clock"></i> Working Schedules</a>
+                <a href="/admin/appointments" class="nav-link"><i class="bi bi-calendar-event"></i> All Appointments</a>
+            </div>
+            <div class="mt-auto p-3">
+                <form th:action="@{/logout}" method="post">
+                    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                    <button type="submit" class="btn btn-outline-danger w-100"><i class="bi bi-box-arrow-right"></i> Logout</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <div>
+                <h1><i class="bi bi-clock"></i> Working Schedules</h1>
+                <p class="text-muted">Manage staff working hours and availability</p>
+            </div>
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addScheduleModal">
+                <i class="bi bi-plus-circle"></i> Add Schedule
+            </button>
+        </div>
+
+        <!-- Schedules Table -->
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">All Schedules</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Staff</th>
+                                <th>Day</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Hours</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="schedule : ${schedules}">
+                                <td th:text="${schedule.staff.name}">Dr. John Smith</td>
+                                <td th:text="${schedule.dayOfWeek}">MONDAY</td>
+                                <td th:text="${#temporals.format(schedule.startTime, 'HH:mm')}">09:00</td>
+                                <td th:text="${#temporals.format(schedule.endTime, 'HH:mm')}">17:00</td>
+                                <td th:text="${#numbers.formatInteger(schedule.endTime.getHour() - schedule.startTime.getHour(), 1)} + ' hrs'">8 hrs</td>
+                                <td>
+                                    <span th:class="'badge ' + ${schedule.holiday ? 'bg-secondary' : 'bg-success'}">
+                                        <span th:text="${schedule.holiday ? 'Holiday' : 'Working'}">Working</span>
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning"><i class="bi bi-pencil"></i></button>
+                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Staff Schedule Overview -->
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">Staff Weekly Hours</h5>
+                    </div>
+                    <div class="card-body">
+                        <div th:each="staff : ${staffMembers}">
+                            <h6 th:text="${staff.name}">Dr. John Smith</h6>
+                            <div class="progress mb-3" style="height: 25px;">
+                                <div class="progress-bar" role="progressbar" 
+                                     th:style="'width: ' + ${#lists.stream(schedules).filter(s -> s.staff.id == staff.id && !s.holiday).count() * 14.28} + '%'"
+                                     th:attr="aria-valuenow=${#lists.stream(schedules).filter(s -> s.staff.id == staff.id && !s.holiday).count() * 14.28}">
+                                    <span th:text="${#lists.stream(schedules).filter(s -> s.staff.id == staff.id && !s.holiday).count()} + ' days'">5 days</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-warning text-white">
+                        <h5 class="mb-0">Weekly Coverage</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Day</th>
+                                    <th>Staff Available</th>
+                                    <th>Coverage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr th:each="day : ${#temporals.create('MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','SUNDAY')}">
+                                    <td th:text="${day}">Monday</td>
+                                    <td th:text="${#lists.stream(schedules).filter(s -> s.dayOfWeek == day && !s.holiday).count()}">2</td>
+                                    <td>
+                                        <span th:if="${#lists.stream(schedules).filter(s -> s.dayOfWeek == day && !s.holiday).count() > 0}"
+                                              class="badge bg-success">Covered</span>
+                                        <span th:unless="${#lists.stream(schedules).filter(s -> s.dayOfWeek == day && !s.holiday).count() > 0}"
+                                              class="badge bg-danger">No Coverage</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Schedule Modal -->
+    <div class="modal fade" id="addScheduleModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary text-white">
+                    <h5 class="modal-title">Add Working Schedule</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addScheduleForm">
+                        <div class="mb-3">
+                            <label class="form-label">Select Staff</label>
+                            <select class="form-select" name="staffId" required>
+                                <option value="">Choose staff...</option>
+                                <option th:each="staff : ${staffMembers}" 
+                                        th:value="${staff.id}"
+                                        th:text="${staff.name + ' (' + staff.specialty + ')'}">
+                                    Dr. John Smith (Dentist)
+                                </option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Day of Week</label>
+                            <select class="form-select" name="dayOfWeek" required>
+                                <option value="">Select day...</option>
+                                <option value="MONDAY">Monday</option>
+                                <option value="TUESDAY">Tuesday</option>
+                                <option value="WEDNESDAY">Wednesday</option>
+                                <option value="THURSDAY">Thursday</option>
+                                <option value="FRIDAY">Friday</option>
+                                <option value="SATURDAY">Saturday</option>
+                                <option value="SUNDAY">Sunday</option>
+                            </select>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Start Time</label>
+                                <input type="time" class="form-control" name="startTime" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">End Time</label>
+                                <input type="time" class="form-control" name="endTime" required>
+                            </div>
+                        </div>
+                        <div class="form-check mt-3">
+                            <input class="form-check-input" type="checkbox" name="isHoliday" id="isHoliday">
+                            <label class="form-check-label" for="isHoliday">
+                                Mark as holiday (day off)
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="addSchedule()">Add Schedule</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function addSchedule() {
+            const form = document.getElementById('addScheduleForm');
+            const formData = new FormData(form);
+            const scheduleData = {
+                staffId: formData.get('staffId'),
+                dayOfWeek: formData.get('dayOfWeek'),
+                startTime: formData.get('startTime'),
+                endTime: formData.get('endTime'),
+                isHoliday: formData.get('isHoliday') === 'on'
+            };
+            
+            // In a real app, make API call to save schedule
+            fetch('/api/schedules', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('input[name="_csrf"]').value
+                },
+                body: JSON.stringify(scheduleData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    location.reload();
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
