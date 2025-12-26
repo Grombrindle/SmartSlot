@@ -18,12 +18,13 @@
                         <p class="mb-0">Login to your account</p>
                     </div>
                     <div class="card-body p-4">
+                        <!-- Note: Spring Security expects username/password fields, not email -->
                         <form th:action="@{/login}" method="post">
                             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
                             
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" id="email" name="username" required>
+                                <label for="username" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="username" name="username" required>
                             </div>
                             
                             <div class="mb-3">

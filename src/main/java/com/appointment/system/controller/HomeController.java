@@ -8,14 +8,26 @@ public class HomeController {
     
     @GetMapping("/")
     public String home() {
-        return "home.html"; // This would render home.html if you have templates
-        // OR redirect to a specific page:
-        // return "redirect:/api/appointments";
+        return "redirect:/login";
     }
     
-    // Optional: A public welcome page before login
-    @GetMapping("/welcome")
-    public String welcome() {
-        return "welcome.html";
+    @GetMapping("/login")
+    public String login() {
+        return "login";
+    }
+    
+    @GetMapping("/register")
+    public String register() {
+        return "register";
+    }
+    
+    @GetMapping("/register/customer")
+    public String registerCustomer() {
+        return "register-customer"; // You can create this template later
+    }
+    
+    @GetMapping("/register/staff")
+    public String registerStaff() {
+        return "register-staff"; // You can create this template later
     }
 }

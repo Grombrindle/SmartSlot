@@ -61,49 +61,54 @@ public class SecurityConfig {
     //     return http.build();
     // }
      @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
-            .csrf(csrf -> csrf
-                .ignoringRequestMatchers("/h2-console/**", "/api/**")
-                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-            )
-            .authorizeHttpRequests(auth -> auth
-                // Public UI endpoints
-                .requestMatchers("/", "/login", "/register", "/css/**", "/js/**", "/images/**").permitAll()
-                .requestMatchers("/h2-console/**").permitAll()
-                
-                // API endpoints
-                .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/api/users").permitAll()
-                
-                // Role-based dashboard access
-                .requestMatchers("/dashboard/admin").hasRole("ADMIN")
-                .requestMatchers("/dashboard/staff/**").hasRole("STAFF")
-                .requestMatchers("/dashboard/customer/**").hasRole("CUSTOMER")
-                
-                // Fallback - all other endpoints require authentication
-                .anyRequest().authenticated()
-            )
-            .formLogin(form -> form
-                .loginPage("/login")
-                .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/dashboard", true)
-                .failureUrl("/login?error=true")
-            )
-            .logout(logout -> logout
-                .logoutUrl("/logout")
-                .logoutSuccessUrl("/login?logout=true")
-            )
-            .sessionManagement(session -> 
-                session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
-            .addFilterBefore(jwtAuthenticationFilter, 
-                UsernamePasswordAuthenticationFilter.class)
-            .headers(headers -> headers
-                .frameOptions(frame -> frame.disable())
-            );
+public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    http
+        .csrf(csrf -> csrf
+            .ignoringRequestMatchers("/h2-console/**", "/api/**")
+            .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+        )
+        .authorizeHttpRequests(auth -> auth
+            // Public endpoints
+            .requestMatchers("/", "/login", "/register", "/register/**",
+                           "/css/**", "/js/**", "/images/**").permitAll()
+            .requestMatchers("/h2-console/**").permitAll()
+            
+            // API endpoints
+            .requestMatchers("/api/auth/**").permitAll()
+            .requestMatchers("/api/users").permitAll()
+            
+            // Dashboard access
+            .requestMatchers("/dashboard/admin").hasRole("ADMIN")
+            .requestMatchers("/dashboard/staff").hasRole("STAFF")
+            .requestMatchers("/dashboard/customer").hasRole("CUSTOMER")
+            .requestMatchers("/dashboard").authenticated()
+            
+            // All other requests require authentication
+            .anyRequest().authenticated()
+        )
+        .formLogin(form -> form
+            .loginPage("/login")
+            .loginProcessingUrl("/login")
+            .defaultSuccessUrl("/dashboard", true)
+            .failureUrl("/login?error=true")
+            .permitAll()
+        )
+        .logout(logout -> logout
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/login?logout=true")
+            .permitAll()
+        )
+        .sessionManagement(session -> 
+            session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+        )
+        .addFilterBefore(jwtAuthenticationFilter, 
+            UsernamePasswordAuthenticationFilter.class)
+        .headers(headers -> headers
+            .frameOptions(frame -> frame.disable())
+        );
 
-        return http.build();
-    }
+    return http.build();
+}
 
 
 }
