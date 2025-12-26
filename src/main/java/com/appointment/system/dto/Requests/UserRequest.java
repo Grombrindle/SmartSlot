@@ -24,4 +24,11 @@ public class UserRequest {
     private String password;
 
     private UserRole role;
+    
+    // Role-specific fields
+    private String specialty;       // For STAFF
+    private String licenseNumber;   // For STAFF
+    private String companyName;     // For ADMIN
+    private String phoneNumber;     // For CUSTOMER
+    private String address;         // For CUSTOMER
 }

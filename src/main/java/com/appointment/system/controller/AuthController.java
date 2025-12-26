@@ -1,11 +1,21 @@
 package com.appointment.system.controller;
 
 import com.appointment.system.dto.Requests.AuthRequest;
+import com.appointment.system.dto.Requests.CustomerRegistrationRequest;
+import com.appointment.system.dto.Requests.StaffRegistrationRequest;
 import com.appointment.system.dto.Responses.ApiResponse;
 import com.appointment.system.dto.Responses.AuthResponse;
+import com.appointment.system.dto.Responses.CustomerResponse;
+import com.appointment.system.dto.Responses.StaffResponse;
 import com.appointment.system.model.User;
 import com.appointment.system.repository.UserRepository;
 import com.appointment.system.security.JwtUtil;
+import com.appointment.system.service.CustomerService;
+import com.appointment.system.service.StaffService;
+
+import jakarta.validation.Valid;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -24,13 +34,19 @@ public class AuthController extends BaseController {
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
     private final UserRepository userRepository;
+    private final StaffService staffService;
+    private final CustomerService customerService;
     
     public AuthController(AuthenticationManager authenticationManager, 
                          JwtUtil jwtUtil,
-                         UserRepository userRepository) {
+                         UserRepository userRepository,
+                         StaffService staffService,
+                         CustomerService customerService) {
         this.authenticationManager = authenticationManager;
         this.jwtUtil = jwtUtil;
         this.userRepository = userRepository;
+        this.staffService = staffService;
+        this.customerService = customerService;
     }
     
     @PostMapping("/login")
@@ -65,14 +81,35 @@ public class AuthController extends BaseController {
             return ok(authResponse, "Login successful");
             
         } catch (BadCredentialsException e) {
-            return unauthorized(null, "Invalid email or password");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                    .body(new ApiResponse<>(false, null, 401, "Invalid email or password", "UNAUTHORIZED"));
         } catch (Exception e) {
-            return error(500, null, "Login failed: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ApiResponse<>(false, null, 500, "Login failed: " + e.getMessage(), "INTERNAL_ERROR"));
         }
     }
-
-    private ResponseEntity<ApiResponse<AuthResponse>> unauthorized(Object object, String string) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'unauthorized'");
+    
+    @PostMapping("/register/staff")
+    public ResponseEntity<ApiResponse<StaffResponse>> registerStaff(@Valid @RequestBody StaffRegistrationRequest request) {
+        User staffUser = staffService.registerStaff(
+            request.getName(),
+            request.getEmail(),
+            request.getPassword(),
+            request.getSpecialty(),
+            request.getLicenseNumber()
+        );
+        return created(StaffResponse.fromUser(staffUser), "Staff member registered successfully");
+    }
+    
+    @PostMapping("/register/customer")
+    public ResponseEntity<ApiResponse<CustomerResponse>> registerCustomer(@Valid @RequestBody CustomerRegistrationRequest request) {
+        User customerUser = customerService.registerCustomer(
+            request.getName(),
+            request.getEmail(),
+            request.getPassword(),
+            request.getPhoneNumber(),
+            request.getAddress()
+        );
+        return created(CustomerResponse.fromUser(customerUser), "Customer registered successfully");
     }
 }

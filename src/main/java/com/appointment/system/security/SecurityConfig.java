@@ -29,34 +29,68 @@ public class SecurityConfig {
         return authenticationConfiguration.getAuthenticationManager();
     }
     
-    @Bean
+    // @Bean
+    // public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+    //     http
+    //         .csrf(csrf -> csrf.disable())
+    //         .sessionManagement(session -> 
+    //             session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+    //         .authorizeHttpRequests(auth -> auth
+    //             .requestMatchers("/api/auth/login").permitAll()
+    //             .requestMatchers("/h2-console/**").permitAll()
+    //             .requestMatchers("/api/users").permitAll() // Allow user registration
+    //             .requestMatchers("/api/users/**").authenticated()
+    //             .anyRequest().authenticated()
+    //         )
+    //           .headers(headers -> headers
+    //         .frameOptions(frame -> frame.disable()) // Disable frame options completely
+    //         // Or use request matcher to only disable for H2 console:
+    //         // .addHeaderWriter(new XFrameOptionsHeaderWriter(
+    //         //     new AllowFromStrategy() {
+    //         //         @Override
+    //         //         public String getAllowFromValue(HttpServletRequest request) {
+    //         //             return "http://localhost:8080";
+    //         //         }
+    //         //     }
+    //         // ))
+    //     )
+    //         .addFilterBefore(jwtAuthenticationFilter, 
+    //             UsernamePasswordAuthenticationFilter.class);
+        
+    //     return http.build();
+    // }
+     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> 
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
+                // Public endpoints
                 .requestMatchers("/api/auth/login").permitAll()
+                .requestMatchers("/api/auth/register/**").permitAll()
                 .requestMatchers("/h2-console/**").permitAll()
-                .requestMatchers("/api/users").permitAll() // Allow user registration
-                .requestMatchers("/api/users/**").authenticated()
+                
+                // Admin-only endpoints
+                .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                
+                // Staff endpoints (Admin + Staff)
+                .requestMatchers("/api/staff/**").hasAnyRole("ADMIN", "STAFF")
+                
+                // Customer endpoints (Admin + Staff + Customer)
+                .requestMatchers("/api/customers/profile").hasRole("CUSTOMER")
+                .requestMatchers("/api/customers/**").hasAnyRole("ADMIN", "STAFF")
+                
+                // Fallback - all other endpoints require authentication
                 .anyRequest().authenticated()
             )
-              .headers(headers -> headers
-            .frameOptions(frame -> frame.disable()) // Disable frame options completely
-            // Or use request matcher to only disable for H2 console:
-            // .addHeaderWriter(new XFrameOptionsHeaderWriter(
-            //     new AllowFromStrategy() {
-            //         @Override
-            //         public String getAllowFromValue(HttpServletRequest request) {
-            //             return "http://localhost:8080";
-            //         }
-            //     }
-            // ))
-        )
+            .headers(headers -> headers
+                .frameOptions(frame -> frame.disable())
+            )
             .addFilterBefore(jwtAuthenticationFilter, 
                 UsernamePasswordAuthenticationFilter.class);
         
         return http.build();
     }
+
 }

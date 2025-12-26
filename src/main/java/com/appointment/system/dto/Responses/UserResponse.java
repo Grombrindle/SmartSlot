@@ -14,8 +14,29 @@ public class UserResponse {
     private String name;
     private String email;
     private UserRole role;
+    
+    // Role-specific fields
+    private String specialty;       // For STAFF
+    private String licenseNumber;   // For STAFF
+    private String companyName;     // For ADMIN
+    private String phoneNumber;     // For CUSTOMER
+    private String address;         // For CUSTOMER
+    private boolean active;
+    private java.time.LocalDateTime createdAt;
 
     public static UserResponse from(User user) {
-        return new UserResponse(user.getId(), user.getName(), user.getEmail(), user.getRole());
+        UserResponse response = new UserResponse();
+        response.setId(user.getId());
+        response.setName(user.getName());
+        response.setEmail(user.getEmail());
+        response.setRole(user.getRole());
+        response.setSpecialty(user.getSpecialty());
+        response.setLicenseNumber(user.getLicenseNumber());
+        response.setCompanyName(user.getCompanyName());
+        response.setPhoneNumber(user.getPhoneNumber());
+        response.setAddress(user.getAddress());
+        response.setActive(user.isActive());
+        response.setCreatedAt(user.getCreatedAt());
+        return response;
     }
 }

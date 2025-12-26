@@ -1,14 +1,7 @@
 package com.appointment.system.model;
 
 import com.appointment.system.enums.UserRole;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,4 +22,20 @@ public class User {
     
     @Enumerated(EnumType.STRING)
     private UserRole role; // ADMIN, STAFF, CUSTOMER
+    
+    // Role-specific fields (nullable - only used when relevant)
+    private String specialty;       // For STAFF only (e.g., "Dentist", "Cardiologist")
+    private String licenseNumber;   // For STAFF only
+    private String companyName;     // For ADMIN only (if needed)
+    private String phoneNumber;     // For CUSTOMER only
+    private String address;         // For CUSTOMER only
+    
+    // Additional common fields
+    private boolean isActive = true;
+    private java.time.LocalDateTime createdAt = java.time.LocalDateTime.now();
+    
+    @PrePersist
+    protected void onCreate() {
+        createdAt = java.time.LocalDateTime.now();
+    }
 }
