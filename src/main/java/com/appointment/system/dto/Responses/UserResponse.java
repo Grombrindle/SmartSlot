@@ -1,4 +1,4 @@
-package com.appointment.system.dto;
+package com.appointment.system.dto.Responses;
 
 import com.appointment.system.enums.UserRole;
 import com.appointment.system.model.User;

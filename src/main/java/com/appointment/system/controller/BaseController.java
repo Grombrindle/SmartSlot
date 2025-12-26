@@ -1,8 +1,9 @@
 package com.appointment.system.controller;
 
-import com.appointment.system.dto.ApiResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import com.appointment.system.dto.Responses.ApiResponse;
 
 public abstract class BaseController {
 

@@ -1,8 +1,8 @@
 package com.appointment.system.controller;
 
-import com.appointment.system.dto.ApiResponse;
-import com.appointment.system.dto.UserRequest;
-import com.appointment.system.dto.UserResponse;
+import com.appointment.system.dto.Requests.UserRequest;
+import com.appointment.system.dto.Responses.ApiResponse;
+import com.appointment.system.dto.Responses.UserResponse;
 import com.appointment.system.model.User;
 import com.appointment.system.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

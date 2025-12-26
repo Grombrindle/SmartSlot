@@ -1,4 +1,4 @@
-package com.appointment.system.dto;
+package com.appointment.system.dto.Responses;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

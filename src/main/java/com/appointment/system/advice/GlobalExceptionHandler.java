@@ -1,6 +1,6 @@
 package com.appointment.system.advice;
 
-import com.appointment.system.dto.ApiResponse;
+import com.appointment.system.dto.Responses.ApiResponse;
 import com.appointment.system.exception.NotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;

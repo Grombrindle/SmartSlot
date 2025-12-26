@@ -37,10 +37,23 @@ public class SecurityConfig {
                 session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/api/auth/login").permitAll()
+                .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/api/users").permitAll() // Allow user registration
                 .requestMatchers("/api/users/**").authenticated()
                 .anyRequest().authenticated()
             )
+              .headers(headers -> headers
+            .frameOptions(frame -> frame.disable()) // Disable frame options completely
+            // Or use request matcher to only disable for H2 console:
+            // .addHeaderWriter(new XFrameOptionsHeaderWriter(
+            //     new AllowFromStrategy() {
+            //         @Override
+            //         public String getAllowFromValue(HttpServletRequest request) {
+            //             return "http://localhost:8080";
+            //         }
+            //     }
+            // ))
+        )
             .addFilterBefore(jwtAuthenticationFilter, 
                 UsernamePasswordAuthenticationFilter.class);
         

@@ -1,7 +1,7 @@
 package com.appointment.system.controller;
 
-import com.appointment.system.dto.ApiResponse;
 import com.appointment.system.dto.Requests.AuthRequest;
+import com.appointment.system.dto.Responses.ApiResponse;
 import com.appointment.system.dto.Responses.AuthResponse;
 import com.appointment.system.model.User;
 import com.appointment.system.repository.UserRepository;

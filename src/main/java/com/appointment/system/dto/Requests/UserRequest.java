@@ -1,4 +1,4 @@
-package com.appointment.system.dto;
+package com.appointment.system.dto.Requests;
 
 import com.appointment.system.enums.UserRole;
 import jakarta.validation.constraints.Email;
