@@ -11,6 +11,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
 @EnableWebSecurity
@@ -62,35 +63,47 @@ public class SecurityConfig {
      @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable())
-            .sessionManagement(session -> 
-                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+            .csrf(csrf -> csrf
+                .ignoringRequestMatchers("/h2-console/**", "/api/**")
+                .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+            )
             .authorizeHttpRequests(auth -> auth
-                // Public endpoints
-                .requestMatchers("/api/auth/login").permitAll()
-                .requestMatchers("/api/auth/register/**").permitAll()
+                // Public UI endpoints
+                .requestMatchers("/", "/login", "/register", "/css/**", "/js/**", "/images/**").permitAll()
                 .requestMatchers("/h2-console/**").permitAll()
                 
-                // Admin-only endpoints
-                .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                // API endpoints
+                .requestMatchers("/api/auth/**").permitAll()
+                .requestMatchers("/api/users").permitAll()
                 
-                // Staff endpoints (Admin + Staff)
-                .requestMatchers("/api/staff/**").hasAnyRole("ADMIN", "STAFF")
-                
-                // Customer endpoints (Admin + Staff + Customer)
-                .requestMatchers("/api/customers/profile").hasRole("CUSTOMER")
-                .requestMatchers("/api/customers/**").hasAnyRole("ADMIN", "STAFF")
+                // Role-based dashboard access
+                .requestMatchers("/dashboard/admin").hasRole("ADMIN")
+                .requestMatchers("/dashboard/staff/**").hasRole("STAFF")
+                .requestMatchers("/dashboard/customer/**").hasRole("CUSTOMER")
                 
                 // Fallback - all other endpoints require authentication
                 .anyRequest().authenticated()
             )
+            .formLogin(form -> form
+                .loginPage("/login")
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/dashboard", true)
+                .failureUrl("/login?error=true")
+            )
+            .logout(logout -> logout
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/login?logout=true")
+            )
+            .sessionManagement(session -> 
+                session.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
+            .addFilterBefore(jwtAuthenticationFilter, 
+                UsernamePasswordAuthenticationFilter.class)
             .headers(headers -> headers
                 .frameOptions(frame -> frame.disable())
-            )
-            .addFilterBefore(jwtAuthenticationFilter, 
-                UsernamePasswordAuthenticationFilter.class);
-        
+            );
+
         return http.build();
     }
+
 
 }
