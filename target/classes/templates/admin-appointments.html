@@ -13,10 +13,11 @@
         .nav-link { color: #495057; padding: 10px 15px; border-radius: 5px; margin: 2px 0; }
         .nav-link:hover { background-color: #e9ecef; color: #0d6efd; }
         .nav-link.active { background-color: #0d6efd; color: white; }
-        .badge-pending { background-color: #ffc107; }
+        .badge-pending { background-color: #ffc107; color: #212529; }
         .badge-approved { background-color: #28a745; }
         .badge-cancelled { background-color: #dc3545; }
         .badge-completed { background-color: #17a2b8; }
+        .table-responsive { max-height: 60vh; overflow-y: auto; }
     </style>
 </head>
 <body>
@@ -59,21 +60,21 @@
                 <div class="row g-3">
                     <div class="col-md-3">
                         <label class="form-label">Status</label>
-                        <select class="form-select" id="statusFilter">
+                        <select class="form-select" id="statusFilter" th:onchange="filterAppointments()">
                             <option value="">All Statuses</option>
-                            <option value="PENDING">Pending</option>
-                            <option value="APPROVED">Approved</option>
-                            <option value="COMPLETED">Completed</option>
-                            <option value="CANCELLED">Cancelled</option>
+                            <option value="PENDING" th:selected="${param.status} == 'PENDING'">Pending</option>
+                            <option value="APPROVED" th:selected="${param.status} == 'APPROVED'">Approved</option>
+                            <option value="COMPLETED" th:selected="${param.status} == 'COMPLETED'">Completed</option>
+                            <option value="CANCELLED" th:selected="${param.status} == 'CANCELLED'">Cancelled</option>
                         </select>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Date From</label>
-                        <input type="date" class="form-control" id="dateFrom">
+                        <input type="date" class="form-control" id="dateFrom" th:value="${param.from}">
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">Date To</label>
-                        <input type="date" class="form-control" id="dateTo">
+                        <input type="date" class="form-control" id="dateTo" th:value="${param.to}">
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">&nbsp;</label>
@@ -87,13 +88,14 @@
 
         <!-- Appointments Table -->
         <div class="card">
-            <div class="card-header bg-primary text-white">
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                 <h5 class="mb-0">Appointments List</h5>
+                <span class="badge bg-light text-dark" th:text="'Total: ' + ${appointments.size()}">Total: 0</span>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-hover">
-                        <thead>
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
                             <tr>
                                 <th>ID</th>
                                 <th>Customer</th>
@@ -107,37 +109,80 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr th:each="appointment : ${appointments}">
+                            <tr th:each="appointment : ${appointments}" th:id="'appointment-' + ${appointment.id}">
                                 <td th:text="${appointment.id}">#123</td>
-                                <td th:text="${appointment.customer.name}">John Doe</td>
+                                <td>
+                                    <div>
+                                        <strong th:text="${appointment.customer.name}">John Doe</strong>
+                                        <br>
+                                        <small class="text-muted" th:text="${appointment.customer.email}">john@example.com</small>
+                                    </div>
+                                </td>
                                 <td th:text="${appointment.staff.name}">Dr. Smith</td>
-                                <td th:text="${appointment.service.name}">Dental Cleaning</td>
-                                <td th:text="${#temporals.format(appointment.appointmentDateTime, 'yyyy-MM-dd HH:mm')}">2023-12-01 10:00 AM</td>
+                                <td>
+                                    <div>
+                                        <strong th:text="${appointment.service.name}">Dental Cleaning</strong>
+                                        <br>
+                                        <small class="text-muted" th:text="${appointment.service.description}">Professional cleaning</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div th:text="${#temporals.format(appointment.appointmentDateTime, 'yyyy-MM-dd')}">2023-12-01</div>
+                                    <small class="text-muted" th:text="${#temporals.format(appointment.appointmentDateTime, 'HH:mm')}">10:00 AM</small>
+                                </td>
                                 <td th:text="${appointment.service.duration} + ' min'">60 min</td>
                                 <td th:text="'$' + ${#numbers.formatDecimal(appointment.service.price, 1, 2)}">$120.00</td>
                                 <td>
-                                    <span th:class="'badge ' + ${appointment.status == 'PENDING' ? 'badge-pending' : 
-                                                              appointment.status == 'APPROVED' ? 'badge-approved' :
-                                                              appointment.status == 'CANCELLED' ? 'badge-cancelled' : 'badge-completed'}">
-                                        <span th:text="${appointment.status}">Pending</span>
+                                    <span th:class="${appointment.status.name() == 'PENDING' ? 'badge badge-pending' : 
+                                                    appointment.status.name() == 'APPROVED' ? 'badge badge-approved' :
+                                                    appointment.status.name() == 'CANCELLED' ? 'badge badge-cancelled' : 'badge badge-completed'}"
+                                          th:text="${appointment.status.name()}">
+                                        Pending
                                     </span>
                                 </td>
                                 <td>
                                     <div class="btn-group">
                                         <button class="btn btn-sm btn-info" data-bs-toggle="modal" 
-                                                data-bs-target="#viewModal" th:attr="data-id=${appointment.id}">
+                                                data-bs-target="#viewModal" th:attr="data-id=${appointment.id}"
+                                                th:title="'View details for appointment #' + ${appointment.id}">
                                             <i class="bi bi-eye"></i>
                                         </button>
-                                        <button th:if="${appointment.status == 'PENDING'}" 
-                                                class="btn btn-sm btn-success" 
-                                                th:attr="onclick=|updateStatus(${appointment.id}, 'APPROVED')|">
-                                            <i class="bi bi-check"></i>
-                                        </button>
-                                        <button th:if="${appointment.status != 'CANCELLED'}" 
-                                                class="btn btn-sm btn-danger" 
-                                                th:attr="onclick=|updateStatus(${appointment.id}, 'CANCELLED')|">
-                                            <i class="bi bi-x"></i>
-                                        </button>
+                                        
+                                        <div class="btn-group" role="group">
+                                            <button type="button" class="btn btn-sm btn-primary dropdown-toggle" 
+                                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                                <i class="bi bi-three-dots"></i>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li th:if="${appointment.status.name() == 'PENDING'}">
+                                                    <a class="dropdown-item text-success" 
+                                                       th:onclick="|updateStatus(${appointment.id}, 'APPROVED', 'Are you sure you want to approve this appointment?')|">
+                                                        <i class="bi bi-check-circle me-2"></i>Approve
+                                                    </a>
+                                                </li>
+                                                <li th:if="${appointment.status.name() != 'CANCELLED'}">
+                                                    <a class="dropdown-item text-danger" 
+                                                       th:onclick="|updateStatus(${appointment.id}, 'CANCELLED', 'Are you sure you want to cancel this appointment?')|">
+                                                        <i class="bi bi-x-circle me-2"></i>Cancel
+                                                    </a>
+                                                </li>
+                                                <li th:if="${appointment.status.name() == 'APPROVED'}">
+                                                    <a class="dropdown-item text-info" 
+                                                       th:onclick="|updateStatus(${appointment.id}, 'COMPLETED', 'Mark this appointment as completed?')|">
+                                                        <i class="bi bi-check-circle-fill me-2"></i>Complete
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr th:if="${appointments.empty}">
+                                <td colspan="9" class="text-center py-5">
+                                    <div class="text-muted">
+                                        <i class="bi bi-calendar-x h1 mb-3"></i>
+                                        <p>No appointments found for the selected filters</p>
+                                        <button class="btn btn-primary mt-2" onclick="clearFilters()">Clear Filters</button>
                                     </div>
                                 </td>
                             </tr>
@@ -160,7 +205,7 @@
             <div class="col-md-3">
                 <div class="card border-warning">
                     <div class="card-body text-center">
-                        <h3 th:text="${#lists.stream(appointments).filter(a -> a.status.name() == 'PENDING').count()}">0</h3>
+                        <h3 th:text="${pendingCount}">0</h3>
                         <p class="text-muted">Pending</p>
                     </div>
                 </div>
@@ -168,7 +213,7 @@
             <div class="col-md-3">
                 <div class="card border-success">
                     <div class="card-body text-center">
-                        <h3 th:text="${#lists.stream(appointments).filter(a -> a.status.name() == 'APPROVED').count()}">0</h3>
+                        <h3 th:text="${approvedCount}">0</h3>
                         <p class="text-muted">Approved</p>
                     </div>
                 </div>
@@ -176,7 +221,7 @@
             <div class="col-md-3">
                 <div class="card border-info">
                     <div class="card-body text-center">
-                        <h3 th:text="${#lists.stream(appointments).filter(a -> a.status.name() == 'COMPLETED').count()}">0</h3>
+                        <h3 th:text="${completedCount}">0</h3>
                         <p class="text-muted">Completed</p>
                     </div>
                 </div>
@@ -189,11 +234,70 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header bg-info text-white">
-                    <h5 class="modal-title">Appointment Details</h5>
+                    <h5 class="modal-title">Appointment Details <span id="modalAppointmentId">#123</span></h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body" id="appointmentDetails">
-                    <!-- Details will be loaded here -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h6 class="mb-0"><i class="bi bi-person"></i> Customer Information</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>Name:</strong> <span id="customerName">John Doe</span></p>
+                                    <p><strong>Email:</strong> <span id="customerEmail">john@example.com</span></p>
+                                    <p><strong>Phone:</strong> <span id="customerPhone">N/A</span></p>
+                                    <p><strong>Role:</strong> <span id="customerRole">CUSTOMER</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card mb-3">
+                                <div class="card-header bg-light">
+                                    <h6 class="mb-0"><i class="bi bi-briefcase"></i> Service Details</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>Service:</strong> <span id="serviceName">Dental Cleaning</span></p>
+                                    <p><strong>Duration:</strong> <span id="serviceDuration">60</span> minutes</p>
+                                    <p><strong>Price:</strong> $<span id="servicePrice">120.00</span></p>
+                                    <p><strong>Provider:</strong> <span id="staffName">Dr. Smith</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header bg-light">
+                                    <h6 class="mb-0"><i class="bi bi-calendar-event"></i> Appointment Details</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><strong>Appointment Date:</strong> <span id="appointmentDate">2023-12-01</span></p>
+                                            <p><strong>Start Time:</strong> <span id="startTime">10:00 AM</span></p>
+                                            <p><strong>End Time:</strong> <span id="endTime">11:00 AM</span></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p><strong>Status:</strong> <span id="appointmentStatus" class="badge">Pending</span></p>
+                                            <p><strong>Created At:</strong> <span id="createdAt">2023-11-15 14:30</span></p>
+                                            <p><strong>Last Updated:</strong> <span id="updatedAt">2023-11-15 14:30</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="mt-3">
+                                        <h6><i class="bi bi-chat-left-text"></i> Notes</h6>
+                                        <p id="notes" class="mb-0">Regular checkup and cleaning</p>
+                                    </div>
+                                    <div id="cancellationInfo" class="mt-3" style="display: none;">
+                                        <h6 class="text-danger"><i class="bi bi-exclamation-circle"></i> Cancellation Details</h6>
+                                        <p id="cancellationReason" class="text-danger mb-0"></p>
+                                        <p><strong>Cancelled At:</strong> <span id="cancelledAt"></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -204,75 +308,175 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Global variables
+        const API_BASE_URL = '/api/appointments';
+        const CSRF_TOKEN = document.querySelector('input[name="_csrf"]').value;
+        
         function filterAppointments() {
             const status = document.getElementById('statusFilter').value;
             const dateFrom = document.getElementById('dateFrom').value;
             const dateTo = document.getElementById('dateTo').value;
             
-            // In a real app, you would make an API call here
-            // For now, we'll just show an alert
-            alert('Filtering by: Status=' + status + ', From=' + dateFrom + ', To=' + dateTo);
-        }
-        
-        function updateStatus(appointmentId, status) {
-            if (confirm('Are you sure you want to update this appointment status?')) {
-                // In a real app, make API call to update status
-                fetch('/api/appointments/' + appointmentId + '/status', {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('input[name="_csrf"]').value
-                    },
-                    body: JSON.stringify({ status: status })
-                })
-                .then(response => {
-                    if (response.ok) {
-                        location.reload();
-                    }
-                })
-                .catch(error => console.error('Error:', error));
+            let url = '/admin/appointments';
+            const params = new URLSearchParams();
+            
+            if (status) params.append('status', status);
+            if (dateFrom) params.append('from', dateFrom);
+            if (dateTo) params.append('to', dateTo);
+            
+            if (params.toString()) {
+                url += '?' + params.toString();
             }
+            
+            window.location.href = url;
         }
         
-        // View Modal functionality
+        function clearFilters() {
+            document.getElementById('statusFilter').value = '';
+            document.getElementById('dateFrom').value = '';
+            document.getElementById('dateTo').value = '';
+            window.location.href = '/admin/appointments';
+        }
+        
+        function updateStatus(appointmentId, status, confirmationMessage) {
+            if (!confirm(confirmationMessage)) {
+                return;
+            }
+            
+            const loadingElement = document.getElementById('appointment-' + appointmentId);
+            if (loadingElement) {
+                loadingElement.innerHTML = '<td colspan="9" class="text-center"><div class="spinner-border spinner-border-sm" role="status"></div> Updating...</td>';
+            }
+            
+            fetch(`${API_BASE_URL}/${appointmentId}/status`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': CSRF_TOKEN
+                },
+                body: JSON.stringify({ status: status })
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                }
+                throw new Error('Failed to update status');
+            })
+            .then(data => {
+                location.reload();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to update appointment status: ' + error.message);
+                location.reload();
+            });
+        }
+        
+        function exportAppointments() {
+            const status = document.getElementById('statusFilter').value;
+            const dateFrom = document.getElementById('dateFrom').value;
+            const dateTo = document.getElementById('dateTo').value;
+            
+            let url = '/api/appointments/export?';
+            const params = new URLSearchParams();
+            
+            if (status) params.append('status', status);
+            if (dateFrom) params.append('from', dateFrom);
+            if (dateTo) params.append('to', dateTo);
+            
+            url += params.toString();
+            
+            window.location.href = url;
+        }
+        
+        // View Modal functionality with enhanced error handling
         document.getElementById('viewModal').addEventListener('show.bs.modal', function(event) {
             const button = event.relatedTarget;
             const appointmentId = button.getAttribute('data-id');
+            document.getElementById('modalAppointmentId').textContent = '#' + appointmentId;
             
-            // In a real app, fetch appointment details from API
-            fetch('/api/appointments/' + appointmentId)
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('appointmentDetails').innerHTML = `
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6>Customer Information</h6>
-                                <p><strong>Name:</strong> ${data.customerName}</p>
-                                <p><strong>Email:</strong> ${data.customerEmail}</p>
-                                <p><strong>Phone:</strong> ${data.customerPhone || 'N/A'}</p>
-                            </div>
-                            <div class="col-md-6">
-                                <h6>Service Details</h6>
-                                <p><strong>Service:</strong> ${data.serviceName}</p>
-                                <p><strong>Duration:</strong> ${data.duration} minutes</p>
-                                <p><strong>Price:</strong> $${data.price}</p>
-                                <p><strong>Provider:</strong> ${data.staffName}</p>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-12">
-                                <h6>Appointment Details</h6>
-                                <p><strong>Date & Time:</strong> ${new Date(data.appointmentDateTime).toLocaleString()}</p>
-                                <p><strong>Status:</strong> ${data.status}</p>
-                                <p><strong>Notes:</strong> ${data.notes || 'None'}</p>
-                            </div>
-                        </div>
-                    `;
-                })
-                .catch(error => {
-                    document.getElementById('appointmentDetails').innerHTML = 
-                        '<div class="alert alert-danger">Error loading appointment details</div>';
-                });
+            fetch(`${API_BASE_URL}/${appointmentId}`, {
+                headers: {
+                    'X-CSRF-TOKEN': CSRF_TOKEN
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to fetch appointment details');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Customer Information
+                document.getElementById('customerName').textContent = data.customerName || 'N/A';
+                document.getElementById('customerEmail').textContent = data.customerEmail || 'N/A';
+                document.getElementById('customerPhone').textContent = data.customerPhone || 'N/A';
+                document.getElementById('customerRole').textContent = data.customerRole || 'CUSTOMER';
+                
+                // Service Details
+                document.getElementById('serviceName').textContent = data.serviceName || 'N/A';
+                document.getElementById('serviceDuration').textContent = data.duration || '0';
+                document.getElementById('servicePrice').textContent = data.price ? parseFloat(data.price).toFixed(2) : '0.00';
+                document.getElementById('staffName').textContent = data.staffName || 'N/A';
+                
+                // Appointment Details
+                const appointmentDate = new Date(data.appointmentDateTime);
+                document.getElementById('appointmentDate').textContent = appointmentDate.toLocaleDateString();
+                document.getElementById('startTime').textContent = appointmentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                
+                const endTime = new Date(appointmentDate);
+                endTime.setMinutes(endTime.getMinutes() + (data.duration || 60));
+                document.getElementById('endTime').textContent = endTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                
+                // Status and timestamps
+                const statusElement = document.getElementById('appointmentStatus');
+                statusElement.textContent = data.status || 'PENDING';
+                statusElement.className = 'badge ' + 
+                    (data.status === 'PENDING' ? 'bg-warning' : 
+                     data.status === 'APPROVED' ? 'bg-success' : 
+                     data.status === 'CANCELLED' ? 'bg-danger' : 'bg-info');
+                
+                document.getElementById('createdAt').textContent = data.createdAt ? new Date(data.createdAt).toLocaleString() : 'N/A';
+                document.getElementById('updatedAt').textContent = data.updatedAt ? new Date(data.updatedAt).toLocaleString() : 'N/A';
+                
+                // Notes and cancellation info
+                document.getElementById('notes').textContent = data.notes || 'No notes';
+                
+                const cancellationInfo = document.getElementById('cancellationInfo');
+                if (data.status === 'CANCELLED' && (data.cancellationReason || data.cancelledAt)) {
+                    cancellationInfo.style.display = 'block';
+                    document.getElementById('cancellationReason').textContent = data.cancellationReason || 'No reason provided';
+                    document.getElementById('cancelledAt').textContent = data.cancelledAt ? new Date(data.cancelledAt).toLocaleString() : 'N/A';
+                } else {
+                    cancellationInfo.style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching appointment details:', error);
+                document.getElementById('appointmentDetails').innerHTML = `
+                    <div class="alert alert-danger p-4 m-3">
+                        <h5><i class="bi bi-exclamation-triangle"></i> Error Loading Details</h5>
+                        <p>Failed to load appointment details: ${error.message}</p>
+                        <button class="btn btn-sm btn-outline-danger mt-2" onclick="location.reload()">
+                            <i class="bi bi-arrow-clockwise"></i> Try Again
+                        </button>
+                    </div>
+                `;
+            });
+        });
+        
+        // Initialize date filters with reasonable defaults
+        document.addEventListener('DOMContentLoaded', function() {
+            const today = new Date();
+            const thirtyDaysAgo = new Date();
+            thirtyDaysAgo.setDate(today.getDate() - 30);
+            
+            if (!document.getElementById('dateFrom').value) {
+                document.getElementById('dateFrom').valueAsDate = thirtyDaysAgo;
+            }
+            if (!document.getElementById('dateTo').value) {
+                document.getElementById('dateTo').valueAsDate = new Date(today.getFullYear(), today.getMonth() + 1, 0);
+            }
         });
     </script>
 </body>

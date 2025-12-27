@@ -1,6 +1,7 @@
 package com.appointment.system.controller;
 
 import com.appointment.system.enums.AppointmentStatus;
+import com.appointment.system.enums.UserRole;
 import com.appointment.system.model.*;
 import com.appointment.system.repository.*;
 import com.appointment.system.service.AppointmentService;
@@ -119,47 +120,82 @@ public class DashboardController {
         return "dashboards/customer-dashboard";
     }
     
+    // @GetMapping("/admin/users")
+    // @PreAuthorize("hasRole('ADMIN')")
+    // public String adminUsers(Model model) {
+    //     List<User> users = userRepository.findAll();
+    //     model.addAttribute("users", users);
+    //     return "admin-users";
+    // }
     @GetMapping("/admin/users")
-    @PreAuthorize("hasRole('ADMIN')")
-    public String adminUsers(Model model) {
-        List<User> users = userRepository.findAll();
-        model.addAttribute("users", users);
-        return "admin-users";
-    }
+@PreAuthorize("hasRole('ADMIN')")
+public String adminUsers(Model model) {
+    List<User> users = userRepository.findAll();
     
-    @GetMapping("/admin/services")
-    @PreAuthorize("hasRole('ADMIN')")
-    public String adminServices(Model model) {
-        List<Service> services = serviceRepository.findAll();
-        List<User> staffMembers = userRepository.findAll().stream()
-            .filter(user -> user.getRole().name().equals("STAFF"))
-            .toList();
+    // Pre-compute role counts
+    long adminCount = users.stream()
+            .filter(u -> u.getRole() == UserRole.ADMIN)
+            .count();
+    
+    long staffCount = users.stream()
+            .filter(u -> u.getRole() == UserRole.STAFF)
+            .count();
+    
+    long customerCount = users.stream()
+            .filter(u -> u.getRole() == UserRole.CUSTOMER)
+            .count();
+    
+    model.addAttribute("users", users);
+    model.addAttribute("adminCount", adminCount);
+    model.addAttribute("staffCount", staffCount);
+    model.addAttribute("customerCount", customerCount);
+    
+    return "admin-users";
+}
+  @GetMapping("/admin/services")
+@PreAuthorize("hasRole('ADMIN')")
+public String adminServices(Model model) {
+    List<Service> services = serviceRepository.findAll();
+    List<User> staffMembers = userRepository.findAll().stream()
+        .filter(user -> user.getRole().name().equals("STAFF"))
+        .toList();
+    
+    // Pre-compute statistics
+    long activeServices = services.stream()
+        .filter(Service::isActive)
+        .count();
+    
+    long inactiveServices = services.stream()
+        .filter(service -> !service.isActive())
+        .count();
+    
+    model.addAttribute("services", services);
+    model.addAttribute("staffMembers", staffMembers);
+    model.addAttribute("activeServices", activeServices);  // Add this
+    model.addAttribute("inactiveServices", inactiveServices);  // Add this
+    
+    return "admin-services";
+}
+    // @GetMapping("/admin/schedules")
+    // @PreAuthorize("hasRole('ADMIN')")
+    // public String adminSchedules(Model model) {
+    //     List<WorkingSchedule> schedules = workingScheduleRepository.findAll();
+    //     List<User> staffMembers = userRepository.findAll().stream()
+    //         .filter(user -> user.getRole().name().equals("STAFF"))
+    //         .toList();
         
-        model.addAttribute("services", services);
-        model.addAttribute("staffMembers", staffMembers);
-        return "admin-services";
-    }
+    //     model.addAttribute("schedules", schedules);
+    //     model.addAttribute("staffMembers", staffMembers);
+    //     return "admin-schedules";
+    // }
     
-    @GetMapping("/admin/schedules")
-    @PreAuthorize("hasRole('ADMIN')")
-    public String adminSchedules(Model model) {
-        List<WorkingSchedule> schedules = workingScheduleRepository.findAll();
-        List<User> staffMembers = userRepository.findAll().stream()
-            .filter(user -> user.getRole().name().equals("STAFF"))
-            .toList();
-        
-        model.addAttribute("schedules", schedules);
-        model.addAttribute("staffMembers", staffMembers);
-        return "admin-schedules";
-    }
-    
-    @GetMapping("/admin/appointments")
-    @PreAuthorize("hasRole('ADMIN')")
-    public String adminAppointments(Model model) {
-        List<Appointment> appointments = appointmentRepository.findAll();
-        model.addAttribute("appointments", appointments);
-        return "admin-appointments";
-    }
+    // @GetMapping("/admin/appointments")
+    // @PreAuthorize("hasRole('ADMIN')")
+    // public String adminAppointments(Model model) {
+    //     List<Appointment> appointments = appointmentRepository.findAll();
+    //     model.addAttribute("appointments", appointments);
+    //     return "admin-appointments";
+    // }
     
     // Staff pages
     @GetMapping("/staff/dashboard")

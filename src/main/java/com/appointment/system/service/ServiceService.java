@@ -80,4 +80,5 @@ public class ServiceService {
     public boolean isServiceAvailable(Long serviceId) {
         return serviceRepository.findByIdAndIsActiveTrue(serviceId).isPresent();
     }
+    
 }
