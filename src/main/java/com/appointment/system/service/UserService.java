@@ -3,6 +3,9 @@ package com.appointment.system.service;
 import com.appointment.system.exception.NotFoundException;
 import com.appointment.system.model.User;
 import com.appointment.system.repository.UserRepository;
+
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,6 +20,10 @@ public class UserService {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
+    // In UserService.java
+public Optional<User> getUserByEmail(String email) {
+    return userRepository.findByEmail(email);
+}
     
     public User createUser(User user) {
         // encode password before saving

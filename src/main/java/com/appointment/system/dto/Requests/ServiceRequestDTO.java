@@ -1,33 +1,27 @@
 package com.appointment.system.dto.Requests;
 
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
+import jakarta.validation.constraints.*;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class ServiceRequestDTO {
+    
     @NotBlank(message = "Service name is required")
-    @Size(max = 100, message = "Service name cannot exceed 100 characters")
+    @Size(min = 3, max = 100, message = "Service name must be between 3 and 100 characters")
     private String name;
     
-    @Size(max = 1000, message = "Description cannot exceed 1000 characters")
+    @Size(max = 500, message = "Description cannot exceed 500 characters")
     private String description;
     
     @NotNull(message = "Duration is required")
     @Min(value = 1, message = "Duration must be at least 1 minute")
-    private Integer duration; // in minutes
+    @Max(value = 480, message = "Duration cannot exceed 480 minutes (8 hours)")
+    private Integer duration;
     
     @NotNull(message = "Price is required")
-    @Positive(message = "Price must be positive")
+    @DecimalMin(value = "0.0", message = "Price must be positive")
     private Double price;
     
     @NotNull(message = "Provider ID is required")
-    private Long providerId; // Staff ID who provides this service
+    private Long providerId;  // This should only accept STAFF users
 }

@@ -42,6 +42,16 @@ public class AppointmentService {
         this.workingScheduleRepository = workingScheduleRepository;
     }
     
+    public Optional<Appointment> getAppointmentById(Long id) {
+    return appointmentRepository.findById(id);
+}
+
+public void deleteAppointment(Long id) {
+    if (!appointmentRepository.existsById(id)) {
+        throw new NotFoundException("Appointment not found");
+    }
+    appointmentRepository.deleteById(id);
+}
     public Appointment bookAppointment(AppointmentRequestDTO requestDTO, Long customerId) {
         // Get customer
         User customer = userRepository.findById(customerId)
