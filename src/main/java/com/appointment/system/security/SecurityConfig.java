@@ -1,6 +1,9 @@
 package com.appointment.system.security;
 
 import com.appointment.system.security.JwtAuthenticationFilter;
+
+import jakarta.servlet.http.HttpServletResponse;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import static org.springframework.http.HttpMethod.GET;
 
 @Configuration
 @EnableWebSecurity
@@ -68,6 +72,9 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
             .csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
         )
         .authorizeHttpRequests(auth -> auth
+
+            .requestMatchers(GET, "/**").permitAll()
+
             // Public endpoints
             .requestMatchers("/", "/login", "/register", "/register/**",
                            "/css/**", "/js/**", "/images/**").permitAll()
@@ -85,6 +92,18 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
             
             // All other requests require authentication
             .anyRequest().authenticated()
+        )
+        .exceptionHandling(ex -> ex
+        .authenticationEntryPoint((request, response, authException) -> {
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // 401
+            response.setContentType("application/json");
+            response.getWriter().write("{\"error\": \"Authentication required: you are not logged in\"}");
+        })
+        .accessDeniedHandler((request, response, accessDeniedException) -> {
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN); // 403
+            response.setContentType(";application/json");
+            response.getWriter().write("{\"error\": \"Access denied: you do not have permission\"}");
+        })
         )
         .formLogin(form -> form
             .loginPage("/login")
