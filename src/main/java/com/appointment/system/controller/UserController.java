@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController extends com.appointment.system.controller.BaseController {
     
     @Autowired
-    private UserServiceImpl UserServiceImpl;
+    private UserServiceImpl userService;
     @Autowired
      private UserRepository userRepository;
     
@@ -32,13 +32,13 @@ public class UserController extends com.appointment.system.controller.BaseContro
         user.setPassword(userRequest.getPassword());
         user.setRole(userRequest.getRole());
 
-        User createdUser = UserServiceImpl.createUser(user);
+        User createdUser = userService.createUser(user);
         return ok(UserResponse.from(createdUser), "User created");
     }
     
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<UserResponse>> getUser(@PathVariable Long id) {
-        User user = UserServiceImpl.getUserById(id);
+        User user = userService.getUserById(id);
         return ok(UserResponse.from(user), "User retrieved");
     }
     @GetMapping("/profile")

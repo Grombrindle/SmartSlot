@@ -1,3 +1,8 @@
 C:\Users\Damasco\SpringBoot\appointment-system\src\test\java\com\appointment\system\AppointmentSystemApplicationTests.java
 C:\Users\Damasco\SpringBoot\appointment-system\src\test\java\com\appointment\system\config\DataLoaderTest.java
+C:\Users\Damasco\SpringBoot\appointment-system\src\test\java\com\appointment\system\controller\UserControllerExceptionTest.java
+C:\Users\Damasco\SpringBoot\appointment-system\src\test\java\com\appointment\system\controller\UserControllerValidationTest.java
+C:\Users\Damasco\SpringBoot\appointment-system\src\test\java\com\appointment\system\security\JwtAuthenticationFilterTest.java
+C:\Users\Damasco\SpringBoot\appointment-system\src\test\java\com\appointment\system\service\ServiceServiceImplTest.java
 C:\Users\Damasco\SpringBoot\appointment-system\src\test\java\com\appointment\system\service\UserServiceTest.java
+C:\Users\Damasco\SpringBoot\appointment-system\src\test\java\com\appointment\system\service\WebSocketNotificationServiceImplTest.java

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.appointment.system.AppointmentSystemApplicationTests" time="7.387" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" version="3.0.2" name="com.appointment.system.AppointmentSystemApplicationTests" time="13.88" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
-    <property name="java.class.path" value="C:\Users\Damasco\SpringBoot\appointment-system\target\test-classes;C:\Users\Damasco\SpringBoot\appointment-system\target\classes;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-actuator\4.0.1\spring-boot-starter-actuator-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter\4.0.1\spring-boot-starter-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-logging\4.0.1\spring-boot-starter-logging-4.0.1.jar;C:\Users\Damasco\.m2\repository\ch\qos\logback\logback-classic\1.5.22\logback-classic-1.5.22.jar;C:\Users\Damasco\.m2\repository\ch\qos\logback\logback-core\1.5.22\logback-core-1.5.22.jar;C:\Users\Damasco\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.25.3\log4j-to-slf4j-2.25.3.jar;C:\Users\Damasco\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.3\log4j-api-2.25.3.jar;C:\Users\Damasco\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\4.0.1\spring-boot-autoconfigure-4.0.1.jar;C:\Users\Damasco\.m2\repository\jakarta\annotation\jakarta.annotation-api\3.0.0\jakarta.annotation-api-3.0.0.jar;C:\Users\Damasco\.m2\repository\org\yaml\snakeyaml\2.5\snakeyaml-2.5.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-micrometer-metrics\4.0.1\spring-boot-starter-micrometer-metrics-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-micrometer-metrics\4.0.1\spring-boot-micrometer-metrics-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-micrometer-observation\4.0.1\spring-boot-micrometer-observation-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-actuator-autoconfigure\4.0.1\spring-boot-actuator-autoconfigure-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-actuator\4.0.1\spring-boot-actuator-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-health\4.0.1\spring-boot-health-4.0.1.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-observation\1.16.1\micrometer-observation-1.16.1.jar;C:\Users\Damasco\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-commons\1.16.1\micrometer-commons-1.16.1.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-jakarta9\1.16.1\micrometer-jakarta9-1.16.1.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-core\1.16.1\micrometer-core-1.16.1.jar;C:\Users\Damasco\.m2\repository\org\hdrhistogram\HdrHistogram\2.2.2\HdrHistogram-2.2.2.jar;C:\Users\Damasco\.m2\repository\org\latencyutils\LatencyUtils\2.0.3\LatencyUtils-2.0.3.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-thymeleaf\4.0.1\spring-boot-starter-thymeleaf-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-thymeleaf\4.0.1\spring-boot-thymeleaf-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\thymeleaf\thymeleaf-spring6\3.1.3.RELEASE\thymeleaf-spring6-3.1.3.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\thymeleaf\thymeleaf\3.1.3.RELEASE\thymeleaf-3.1.3.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\attoparser\attoparser\2.0.7.RELEASE\attoparser-2.0.7.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-web\7.0.2\spring-web-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-h2console\4.0.1\spring-boot-h2console-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot\4.0.1\spring-boot-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-context\7.0.2\spring-context-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-expression\7.0.2\spring-expression-7.0.2.jar;C:\Users\Damasco\.m2\repository\jakarta\servlet\jakarta.servlet-api\6.1.0\jakarta.servlet-api-6.1.0.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\4.0.1\spring-boot-starter-data-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\4.0.1\spring-boot-starter-jdbc-4.0.1.jar;C:\Users\Damasco\.m2\repository\com\zaxxer\HikariCP\7.0.2\HikariCP-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-data-jpa\4.0.1\spring-boot-data-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-data-commons\4.0.1\spring-boot-data-commons-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-persistence\4.0.1\spring-boot-persistence-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\data\spring-data-commons\4.0.1\spring-data-commons-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-hibernate\4.0.1\spring-boot-hibernate-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jpa\4.0.1\spring-boot-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.2.0\jakarta.persistence-api-3.2.0.jar;C:\Users\Damasco\.m2\repository\org\hibernate\orm\hibernate-core\7.2.0.Final\hibernate-core-7.2.0.Final.jar;C:\Users\Damasco\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Damasco\.m2\repository\org\hibernate\models\hibernate-models\1.0.1\hibernate-models-1.0.1.jar;C:\Users\Damasco\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.6\jaxb-runtime-4.0.6.jar;C:\Users\Damasco\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.6\jaxb-core-4.0.6.jar;C:\Users\Damasco\.m2\repository\org\eclipse\angus\angus-activation\2.0.3\angus-activation-2.0.3.jar;C:\Users\Damasco\.m2\repository\org\glassfish\jaxb\txw2\4.0.6\txw2-4.0.6.jar;C:\Users\Damasco\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Damasco\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-orm\7.0.2\spring-orm-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\data\spring-data-jpa\4.0.1\spring-data-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-tx\7.0.2\spring-tx-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\antlr\antlr4-runtime\4.13.2\antlr4-runtime-4.13.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-aspects\7.0.2\spring-aspects-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\aspectj\aspectjweaver\1.9.25.1\aspectjweaver-1.9.25.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jdbc\4.0.1\spring-boot-jdbc-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-sql\4.0.1\spring-boot-sql-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-transaction\4.0.1\spring-boot-transaction-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-jdbc\7.0.2\spring-jdbc-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-security\4.0.1\spring-boot-starter-security-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-security\4.0.1\spring-boot-security-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-config\7.0.2\spring-security-config-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-core\7.0.2\spring-security-core-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-crypto\7.0.2\spring-security-crypto-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-web\7.0.2\spring-security-web-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-aop\7.0.2\spring-aop-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-beans\7.0.2\spring-beans-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-validation\4.0.1\spring-boot-starter-validation-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-validation\4.0.1\spring-boot-validation-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\11.0.15\tomcat-embed-el-11.0.15.jar;C:\Users\Damasco\.m2\repository\org\hibernate\validator\hibernate-validator\9.0.1.Final\hibernate-validator-9.0.1.Final.jar;C:\Users\Damasco\.m2\repository\jakarta\validation\jakarta.validation-api\3.1.1\jakarta.validation-api-3.1.1.jar;C:\Users\Damasco\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\Damasco\.m2\repository\com\fasterxml\classmate\1.7.1\classmate-1.7.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc\4.0.1\spring-boot-starter-webmvc-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jackson\4.0.1\spring-boot-starter-jackson-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jackson\4.0.1\spring-boot-jackson-4.0.1.jar;C:\Users\Damasco\.m2\repository\tools\jackson\core\jackson-databind\3.0.3\jackson-databind-3.0.3.jar;C:\Users\Damasco\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.20\jackson-annotations-2.20.jar;C:\Users\Damasco\.m2\repository\tools\jackson\core\jackson-core\3.0.3\jackson-core-3.0.3.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\4.0.1\spring-boot-starter-tomcat-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat-runtime\4.0.1\spring-boot-starter-tomcat-runtime-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\11.0.15\tomcat-embed-core-11.0.15.jar;C:\Users\Damasco\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\11.0.15\tomcat-embed-websocket-11.0.15.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-tomcat\4.0.1\spring-boot-tomcat-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-http-converter\4.0.1\spring-boot-http-converter-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-webmvc\4.0.1\spring-boot-webmvc-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-servlet\4.0.1\spring-boot-servlet-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-webmvc\7.0.2\spring-webmvc-7.0.2.jar;C:\Users\Damasco\.m2\repository\com\h2database\h2\2.4.240\h2-2.4.240.jar;C:\Users\Damasco\.m2\repository\org\projectlombok\lombok\1.18.42\lombok-1.18.42.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa-test\4.0.1\spring-boot-starter-data-jpa-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc-test\4.0.1\spring-boot-starter-jdbc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jdbc-test\4.0.1\spring-boot-jdbc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-data-jpa-test\4.0.1\spring-boot-data-jpa-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jpa-test\4.0.1\spring-boot-jpa-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-security-test\4.0.1\spring-boot-starter-security-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-security-test\4.0.1\spring-boot-security-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-test\7.0.2\spring-security-test-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-validation-test\4.0.1\spring-boot-starter-validation-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc-test\4.0.1\spring-boot-starter-webmvc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jackson-test\4.0.1\spring-boot-starter-jackson-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-webmvc-test\4.0.1\spring-boot-webmvc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-web-server\4.0.1\spring-boot-web-server-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-resttestclient\4.0.1\spring-boot-resttestclient-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-test\4.0.1\spring-boot-starter-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-test\4.0.1\spring-boot-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\4.0.1\spring-boot-test-autoconfigure-4.0.1.jar;C:\Users\Damasco\.m2\repository\com\jayway\jsonpath\json-path\2.10.0\json-path-2.10.0.jar;C:\Users\Damasco\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\Damasco\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.4\jakarta.xml.bind-api-4.0.4.jar;C:\Users\Damasco\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.4\jakarta.activation-api-2.1.4.jar;C:\Users\Damasco\.m2\repository\net\minidev\json-smart\2.6.0\json-smart-2.6.0.jar;C:\Users\Damasco\.m2\repository\net\minidev\accessors-smart\2.6.0\accessors-smart-2.6.0.jar;C:\Users\Damasco\.m2\repository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;C:\Users\Damasco\.m2\repository\org\assertj\assertj-core\3.27.6\assertj-core-3.27.6.jar;C:\Users\Damasco\.m2\repository\net\bytebuddy\byte-buddy\1.17.8\byte-buddy-1.17.8.jar;C:\Users\Damasco\.m2\repository\org\awaitility\awaitility\4.3.0\awaitility-4.3.0.jar;C:\Users\Damasco\.m2\repository\org\hamcrest\hamcrest\3.0\hamcrest-3.0.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter\6.0.1\junit-jupiter-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter-api\6.0.1\junit-jupiter-api-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Damasco\.m2\repository\org\junit\platform\junit-platform-commons\6.0.1\junit-platform-commons-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter-params\6.0.1\junit-jupiter-params-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter-engine\6.0.1\junit-jupiter-engine-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\junit\platform\junit-platform-engine\6.0.1\junit-platform-engine-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\mockito\mockito-core\5.20.0\mockito-core-5.20.0.jar;C:\Users\Damasco\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar;C:\Users\Damasco\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Damasco\.m2\repository\org\mockito\mockito-junit-jupiter\5.20.0\mockito-junit-jupiter-5.20.0.jar;C:\Users\Damasco\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\Damasco\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-core\7.0.2\spring-core-7.0.2.jar;C:\Users\Damasco\.m2\repository\commons-logging\commons-logging\1.3.5\commons-logging-1.3.5.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-test\7.0.2\spring-test-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\xmlunit\xmlunit-core\2.10.4\xmlunit-core-2.10.4.jar;"/>
+    <property name="java.class.path" value="C:\Users\Damasco\SpringBoot\appointment-system\target\test-classes;C:\Users\Damasco\SpringBoot\appointment-system\target\classes;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-actuator\4.0.1\spring-boot-starter-actuator-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter\4.0.1\spring-boot-starter-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-logging\4.0.1\spring-boot-starter-logging-4.0.1.jar;C:\Users\Damasco\.m2\repository\ch\qos\logback\logback-classic\1.5.22\logback-classic-1.5.22.jar;C:\Users\Damasco\.m2\repository\ch\qos\logback\logback-core\1.5.22\logback-core-1.5.22.jar;C:\Users\Damasco\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.25.3\log4j-to-slf4j-2.25.3.jar;C:\Users\Damasco\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.3\log4j-api-2.25.3.jar;C:\Users\Damasco\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\Damasco\.m2\repository\jakarta\annotation\jakarta.annotation-api\3.0.0\jakarta.annotation-api-3.0.0.jar;C:\Users\Damasco\.m2\repository\org\yaml\snakeyaml\2.5\snakeyaml-2.5.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-micrometer-metrics\4.0.1\spring-boot-starter-micrometer-metrics-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-micrometer-metrics\4.0.1\spring-boot-micrometer-metrics-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-micrometer-observation\4.0.1\spring-boot-micrometer-observation-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-actuator-autoconfigure\4.0.1\spring-boot-actuator-autoconfigure-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-actuator\4.0.1\spring-boot-actuator-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-health\4.0.1\spring-boot-health-4.0.1.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-observation\1.16.1\micrometer-observation-1.16.1.jar;C:\Users\Damasco\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-commons\1.16.1\micrometer-commons-1.16.1.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-jakarta9\1.16.1\micrometer-jakarta9-1.16.1.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-core\1.16.1\micrometer-core-1.16.1.jar;C:\Users\Damasco\.m2\repository\org\hdrhistogram\HdrHistogram\2.2.2\HdrHistogram-2.2.2.jar;C:\Users\Damasco\.m2\repository\org\latencyutils\LatencyUtils\2.0.3\LatencyUtils-2.0.3.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-thymeleaf\4.0.1\spring-boot-starter-thymeleaf-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-thymeleaf\4.0.1\spring-boot-thymeleaf-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\thymeleaf\thymeleaf-spring6\3.1.3.RELEASE\thymeleaf-spring6-3.1.3.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\thymeleaf\thymeleaf\3.1.3.RELEASE\thymeleaf-3.1.3.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\attoparser\attoparser\2.0.7.RELEASE\attoparser-2.0.7.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-web\7.0.2\spring-web-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-aop\7.0.2\spring-aop-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-beans\7.0.2\spring-beans-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-core\7.0.2\spring-core-7.0.2.jar;C:\Users\Damasco\.m2\repository\commons-logging\commons-logging\1.3.5\commons-logging-1.3.5.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-websocket\4.0.1\spring-boot-starter-websocket-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-websocket\4.0.1\spring-boot-websocket-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-messaging\7.0.2\spring-messaging-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-websocket\7.0.2\spring-websocket-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-mail\4.0.1\spring-boot-starter-mail-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-mail\4.0.1\spring-boot-mail-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-context-support\7.0.2\spring-context-support-7.0.2.jar;C:\Users\Damasco\.m2\repository\jakarta\mail\jakarta.mail-api\2.1.5\jakarta.mail-api-2.1.5.jar;C:\Users\Damasco\.m2\repository\org\eclipse\angus\angus-mail\2.0.5\angus-mail-2.0.5.jar;C:\Users\Damasco\.m2\repository\org\eclipse\angus\angus-activation\2.0.3\angus-activation-2.0.3.jar;C:\Users\Damasco\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.20.1\jackson-databind-2.20.1.jar;C:\Users\Damasco\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.20\jackson-annotations-2.20.jar;C:\Users\Damasco\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.20.1\jackson-core-2.20.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-h2console\4.0.1\spring-boot-h2console-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot\4.0.1\spring-boot-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-context\7.0.2\spring-context-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-expression\7.0.2\spring-expression-7.0.2.jar;C:\Users\Damasco\.m2\repository\jakarta\servlet\jakarta.servlet-api\6.1.0\jakarta.servlet-api-6.1.0.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\4.0.1\spring-boot-starter-data-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\4.0.1\spring-boot-starter-jdbc-4.0.1.jar;C:\Users\Damasco\.m2\repository\com\zaxxer\HikariCP\7.0.2\HikariCP-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-data-jpa\4.0.1\spring-boot-data-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-data-commons\4.0.1\spring-boot-data-commons-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-persistence\4.0.1\spring-boot-persistence-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\data\spring-data-commons\4.0.1\spring-data-commons-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-hibernate\4.0.1\spring-boot-hibernate-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jpa\4.0.1\spring-boot-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.2.0\jakarta.persistence-api-3.2.0.jar;C:\Users\Damasco\.m2\repository\org\hibernate\orm\hibernate-core\7.2.0.Final\hibernate-core-7.2.0.Final.jar;C:\Users\Damasco\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Damasco\.m2\repository\org\hibernate\models\hibernate-models\1.0.1\hibernate-models-1.0.1.jar;C:\Users\Damasco\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.6\jaxb-runtime-4.0.6.jar;C:\Users\Damasco\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.6\jaxb-core-4.0.6.jar;C:\Users\Damasco\.m2\repository\org\glassfish\jaxb\txw2\4.0.6\txw2-4.0.6.jar;C:\Users\Damasco\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Damasco\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-orm\7.0.2\spring-orm-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\data\spring-data-jpa\4.0.1\spring-data-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-tx\7.0.2\spring-tx-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\antlr\antlr4-runtime\4.13.2\antlr4-runtime-4.13.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-aspects\7.0.2\spring-aspects-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\aspectj\aspectjweaver\1.9.25.1\aspectjweaver-1.9.25.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jdbc\4.0.1\spring-boot-jdbc-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-sql\4.0.1\spring-boot-sql-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-transaction\4.0.1\spring-boot-transaction-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-jdbc\7.0.2\spring-jdbc-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-security\4.0.1\spring-boot-starter-security-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-security\4.0.1\spring-boot-security-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-config\7.0.2\spring-security-config-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-core\7.0.2\spring-security-core-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-crypto\7.0.2\spring-security-crypto-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-web\7.0.2\spring-security-web-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-validation\4.0.1\spring-boot-starter-validation-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-validation\4.0.1\spring-boot-validation-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\11.0.15\tomcat-embed-el-11.0.15.jar;C:\Users\Damasco\.m2\repository\org\hibernate\validator\hibernate-validator\9.0.1.Final\hibernate-validator-9.0.1.Final.jar;C:\Users\Damasco\.m2\repository\jakarta\validation\jakarta.validation-api\3.1.1\jakarta.validation-api-3.1.1.jar;C:\Users\Damasco\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\Damasco\.m2\repository\com\fasterxml\classmate\1.7.1\classmate-1.7.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc\4.0.1\spring-boot-starter-webmvc-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jackson\4.0.1\spring-boot-starter-jackson-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jackson\4.0.1\spring-boot-jackson-4.0.1.jar;C:\Users\Damasco\.m2\repository\tools\jackson\core\jackson-databind\3.0.3\jackson-databind-3.0.3.jar;C:\Users\Damasco\.m2\repository\tools\jackson\core\jackson-core\3.0.3\jackson-core-3.0.3.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\4.0.1\spring-boot-starter-tomcat-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat-runtime\4.0.1\spring-boot-starter-tomcat-runtime-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\11.0.15\tomcat-embed-core-11.0.15.jar;C:\Users\Damasco\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\11.0.15\tomcat-embed-websocket-11.0.15.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-tomcat\4.0.1\spring-boot-tomcat-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-http-converter\4.0.1\spring-boot-http-converter-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-webmvc\4.0.1\spring-boot-webmvc-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-servlet\4.0.1\spring-boot-servlet-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-webmvc\7.0.2\spring-webmvc-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-web\4.0.1\spring-boot-starter-web-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-devtools\4.0.1\spring-boot-devtools-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\4.0.1\spring-boot-autoconfigure-4.0.1.jar;C:\Users\Damasco\.m2\repository\com\h2database\h2\2.4.240\h2-2.4.240.jar;C:\Users\Damasco\.m2\repository\org\projectlombok\lombok\1.18.42\lombok-1.18.42.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa-test\4.0.1\spring-boot-starter-data-jpa-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc-test\4.0.1\spring-boot-starter-jdbc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jdbc-test\4.0.1\spring-boot-jdbc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-data-jpa-test\4.0.1\spring-boot-data-jpa-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jpa-test\4.0.1\spring-boot-jpa-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-security-test\4.0.1\spring-boot-starter-security-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-security-test\4.0.1\spring-boot-security-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-test\7.0.2\spring-security-test-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-validation-test\4.0.1\spring-boot-starter-validation-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc-test\4.0.1\spring-boot-starter-webmvc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jackson-test\4.0.1\spring-boot-starter-jackson-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-webmvc-test\4.0.1\spring-boot-webmvc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-web-server\4.0.1\spring-boot-web-server-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-resttestclient\4.0.1\spring-boot-resttestclient-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-test\4.0.1\spring-boot-starter-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-test\4.0.1\spring-boot-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\4.0.1\spring-boot-test-autoconfigure-4.0.1.jar;C:\Users\Damasco\.m2\repository\com\jayway\jsonpath\json-path\2.10.0\json-path-2.10.0.jar;C:\Users\Damasco\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\Damasco\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.4\jakarta.xml.bind-api-4.0.4.jar;C:\Users\Damasco\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.4\jakarta.activation-api-2.1.4.jar;C:\Users\Damasco\.m2\repository\net\minidev\json-smart\2.6.0\json-smart-2.6.0.jar;C:\Users\Damasco\.m2\repository\net\minidev\accessors-smart\2.6.0\accessors-smart-2.6.0.jar;C:\Users\Damasco\.m2\repository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;C:\Users\Damasco\.m2\repository\org\assertj\assertj-core\3.27.6\assertj-core-3.27.6.jar;C:\Users\Damasco\.m2\repository\net\bytebuddy\byte-buddy\1.17.8\byte-buddy-1.17.8.jar;C:\Users\Damasco\.m2\repository\org\awaitility\awaitility\4.3.0\awaitility-4.3.0.jar;C:\Users\Damasco\.m2\repository\org\hamcrest\hamcrest\3.0\hamcrest-3.0.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter\6.0.1\junit-jupiter-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter-api\6.0.1\junit-jupiter-api-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Damasco\.m2\repository\org\junit\platform\junit-platform-commons\6.0.1\junit-platform-commons-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter-params\6.0.1\junit-jupiter-params-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter-engine\6.0.1\junit-jupiter-engine-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\junit\platform\junit-platform-engine\6.0.1\junit-platform-engine-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\mockito\mockito-core\5.20.0\mockito-core-5.20.0.jar;C:\Users\Damasco\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar;C:\Users\Damasco\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Damasco\.m2\repository\org\mockito\mockito-junit-jupiter\5.20.0\mockito-junit-jupiter-5.20.0.jar;C:\Users\Damasco\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\Damasco\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-test\7.0.2\spring-test-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\xmlunit\xmlunit-core\2.10.4\xmlunit-core-2.10.4.jar;C:\Users\Damasco\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\Damasco\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\Damasco\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;"/>
     <property name="java.vm.vendor" value="Eclipse Adoptium"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="user.variant" value=""/>
@@ -17,9 +17,9 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Users\Damasco\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.15.6-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\Damasco\AppData\Local\Temp\surefire7549050193063512835\surefirebooter-20251226014219273_3.jar C:\Users\Damasco\AppData\Local\Temp\surefire7549050193063512835 2025-12-26T01-42-19_130-jvmRun1 surefire-20251226014219273_1tmp surefire_0-20251226014219273_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Damasco\AppData\Local\Temp\surefire15754457353151225980\surefirebooter-20260102192910580_3.jar C:\Users\Damasco\AppData\Local\Temp\surefire15754457353151225980 2026-01-02T19-29-10_424-jvmRun1 surefire-20260102192910580_1tmp surefire_0-20260102192910580_2tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="C:\Users\Damasco\SpringBoot\appointment-system\target\test-classes;C:\Users\Damasco\SpringBoot\appointment-system\target\classes;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-actuator\4.0.1\spring-boot-starter-actuator-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter\4.0.1\spring-boot-starter-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-logging\4.0.1\spring-boot-starter-logging-4.0.1.jar;C:\Users\Damasco\.m2\repository\ch\qos\logback\logback-classic\1.5.22\logback-classic-1.5.22.jar;C:\Users\Damasco\.m2\repository\ch\qos\logback\logback-core\1.5.22\logback-core-1.5.22.jar;C:\Users\Damasco\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.25.3\log4j-to-slf4j-2.25.3.jar;C:\Users\Damasco\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.3\log4j-api-2.25.3.jar;C:\Users\Damasco\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\4.0.1\spring-boot-autoconfigure-4.0.1.jar;C:\Users\Damasco\.m2\repository\jakarta\annotation\jakarta.annotation-api\3.0.0\jakarta.annotation-api-3.0.0.jar;C:\Users\Damasco\.m2\repository\org\yaml\snakeyaml\2.5\snakeyaml-2.5.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-micrometer-metrics\4.0.1\spring-boot-starter-micrometer-metrics-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-micrometer-metrics\4.0.1\spring-boot-micrometer-metrics-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-micrometer-observation\4.0.1\spring-boot-micrometer-observation-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-actuator-autoconfigure\4.0.1\spring-boot-actuator-autoconfigure-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-actuator\4.0.1\spring-boot-actuator-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-health\4.0.1\spring-boot-health-4.0.1.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-observation\1.16.1\micrometer-observation-1.16.1.jar;C:\Users\Damasco\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-commons\1.16.1\micrometer-commons-1.16.1.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-jakarta9\1.16.1\micrometer-jakarta9-1.16.1.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-core\1.16.1\micrometer-core-1.16.1.jar;C:\Users\Damasco\.m2\repository\org\hdrhistogram\HdrHistogram\2.2.2\HdrHistogram-2.2.2.jar;C:\Users\Damasco\.m2\repository\org\latencyutils\LatencyUtils\2.0.3\LatencyUtils-2.0.3.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-thymeleaf\4.0.1\spring-boot-starter-thymeleaf-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-thymeleaf\4.0.1\spring-boot-thymeleaf-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\thymeleaf\thymeleaf-spring6\3.1.3.RELEASE\thymeleaf-spring6-3.1.3.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\thymeleaf\thymeleaf\3.1.3.RELEASE\thymeleaf-3.1.3.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\attoparser\attoparser\2.0.7.RELEASE\attoparser-2.0.7.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-web\7.0.2\spring-web-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-h2console\4.0.1\spring-boot-h2console-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot\4.0.1\spring-boot-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-context\7.0.2\spring-context-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-expression\7.0.2\spring-expression-7.0.2.jar;C:\Users\Damasco\.m2\repository\jakarta\servlet\jakarta.servlet-api\6.1.0\jakarta.servlet-api-6.1.0.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\4.0.1\spring-boot-starter-data-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\4.0.1\spring-boot-starter-jdbc-4.0.1.jar;C:\Users\Damasco\.m2\repository\com\zaxxer\HikariCP\7.0.2\HikariCP-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-data-jpa\4.0.1\spring-boot-data-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-data-commons\4.0.1\spring-boot-data-commons-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-persistence\4.0.1\spring-boot-persistence-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\data\spring-data-commons\4.0.1\spring-data-commons-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-hibernate\4.0.1\spring-boot-hibernate-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jpa\4.0.1\spring-boot-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.2.0\jakarta.persistence-api-3.2.0.jar;C:\Users\Damasco\.m2\repository\org\hibernate\orm\hibernate-core\7.2.0.Final\hibernate-core-7.2.0.Final.jar;C:\Users\Damasco\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Damasco\.m2\repository\org\hibernate\models\hibernate-models\1.0.1\hibernate-models-1.0.1.jar;C:\Users\Damasco\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.6\jaxb-runtime-4.0.6.jar;C:\Users\Damasco\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.6\jaxb-core-4.0.6.jar;C:\Users\Damasco\.m2\repository\org\eclipse\angus\angus-activation\2.0.3\angus-activation-2.0.3.jar;C:\Users\Damasco\.m2\repository\org\glassfish\jaxb\txw2\4.0.6\txw2-4.0.6.jar;C:\Users\Damasco\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Damasco\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-orm\7.0.2\spring-orm-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\data\spring-data-jpa\4.0.1\spring-data-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-tx\7.0.2\spring-tx-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\antlr\antlr4-runtime\4.13.2\antlr4-runtime-4.13.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-aspects\7.0.2\spring-aspects-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\aspectj\aspectjweaver\1.9.25.1\aspectjweaver-1.9.25.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jdbc\4.0.1\spring-boot-jdbc-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-sql\4.0.1\spring-boot-sql-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-transaction\4.0.1\spring-boot-transaction-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-jdbc\7.0.2\spring-jdbc-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-security\4.0.1\spring-boot-starter-security-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-security\4.0.1\spring-boot-security-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-config\7.0.2\spring-security-config-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-core\7.0.2\spring-security-core-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-crypto\7.0.2\spring-security-crypto-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-web\7.0.2\spring-security-web-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-aop\7.0.2\spring-aop-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-beans\7.0.2\spring-beans-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-validation\4.0.1\spring-boot-starter-validation-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-validation\4.0.1\spring-boot-validation-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\11.0.15\tomcat-embed-el-11.0.15.jar;C:\Users\Damasco\.m2\repository\org\hibernate\validator\hibernate-validator\9.0.1.Final\hibernate-validator-9.0.1.Final.jar;C:\Users\Damasco\.m2\repository\jakarta\validation\jakarta.validation-api\3.1.1\jakarta.validation-api-3.1.1.jar;C:\Users\Damasco\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\Damasco\.m2\repository\com\fasterxml\classmate\1.7.1\classmate-1.7.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc\4.0.1\spring-boot-starter-webmvc-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jackson\4.0.1\spring-boot-starter-jackson-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jackson\4.0.1\spring-boot-jackson-4.0.1.jar;C:\Users\Damasco\.m2\repository\tools\jackson\core\jackson-databind\3.0.3\jackson-databind-3.0.3.jar;C:\Users\Damasco\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.20\jackson-annotations-2.20.jar;C:\Users\Damasco\.m2\repository\tools\jackson\core\jackson-core\3.0.3\jackson-core-3.0.3.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\4.0.1\spring-boot-starter-tomcat-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat-runtime\4.0.1\spring-boot-starter-tomcat-runtime-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\11.0.15\tomcat-embed-core-11.0.15.jar;C:\Users\Damasco\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\11.0.15\tomcat-embed-websocket-11.0.15.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-tomcat\4.0.1\spring-boot-tomcat-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-http-converter\4.0.1\spring-boot-http-converter-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-webmvc\4.0.1\spring-boot-webmvc-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-servlet\4.0.1\spring-boot-servlet-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-webmvc\7.0.2\spring-webmvc-7.0.2.jar;C:\Users\Damasco\.m2\repository\com\h2database\h2\2.4.240\h2-2.4.240.jar;C:\Users\Damasco\.m2\repository\org\projectlombok\lombok\1.18.42\lombok-1.18.42.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa-test\4.0.1\spring-boot-starter-data-jpa-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc-test\4.0.1\spring-boot-starter-jdbc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jdbc-test\4.0.1\spring-boot-jdbc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-data-jpa-test\4.0.1\spring-boot-data-jpa-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jpa-test\4.0.1\spring-boot-jpa-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-security-test\4.0.1\spring-boot-starter-security-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-security-test\4.0.1\spring-boot-security-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-test\7.0.2\spring-security-test-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-validation-test\4.0.1\spring-boot-starter-validation-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc-test\4.0.1\spring-boot-starter-webmvc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jackson-test\4.0.1\spring-boot-starter-jackson-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-webmvc-test\4.0.1\spring-boot-webmvc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-web-server\4.0.1\spring-boot-web-server-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-resttestclient\4.0.1\spring-boot-resttestclient-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-test\4.0.1\spring-boot-starter-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-test\4.0.1\spring-boot-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\4.0.1\spring-boot-test-autoconfigure-4.0.1.jar;C:\Users\Damasco\.m2\repository\com\jayway\jsonpath\json-path\2.10.0\json-path-2.10.0.jar;C:\Users\Damasco\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\Damasco\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.4\jakarta.xml.bind-api-4.0.4.jar;C:\Users\Damasco\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.4\jakarta.activation-api-2.1.4.jar;C:\Users\Damasco\.m2\repository\net\minidev\json-smart\2.6.0\json-smart-2.6.0.jar;C:\Users\Damasco\.m2\repository\net\minidev\accessors-smart\2.6.0\accessors-smart-2.6.0.jar;C:\Users\Damasco\.m2\repository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;C:\Users\Damasco\.m2\repository\org\assertj\assertj-core\3.27.6\assertj-core-3.27.6.jar;C:\Users\Damasco\.m2\repository\net\bytebuddy\byte-buddy\1.17.8\byte-buddy-1.17.8.jar;C:\Users\Damasco\.m2\repository\org\awaitility\awaitility\4.3.0\awaitility-4.3.0.jar;C:\Users\Damasco\.m2\repository\org\hamcrest\hamcrest\3.0\hamcrest-3.0.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter\6.0.1\junit-jupiter-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter-api\6.0.1\junit-jupiter-api-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Damasco\.m2\repository\org\junit\platform\junit-platform-commons\6.0.1\junit-platform-commons-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter-params\6.0.1\junit-jupiter-params-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter-engine\6.0.1\junit-jupiter-engine-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\junit\platform\junit-platform-engine\6.0.1\junit-platform-engine-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\mockito\mockito-core\5.20.0\mockito-core-5.20.0.jar;C:\Users\Damasco\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar;C:\Users\Damasco\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Damasco\.m2\repository\org\mockito\mockito-junit-jupiter\5.20.0\mockito-junit-jupiter-5.20.0.jar;C:\Users\Damasco\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\Damasco\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-core\7.0.2\spring-core-7.0.2.jar;C:\Users\Damasco\.m2\repository\commons-logging\commons-logging\1.3.5\commons-logging-1.3.5.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-test\7.0.2\spring-test-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\xmlunit\xmlunit-core\2.10.4\xmlunit-core-2.10.4.jar;"/>
+    <property name="surefire.test.class.path" value="C:\Users\Damasco\SpringBoot\appointment-system\target\test-classes;C:\Users\Damasco\SpringBoot\appointment-system\target\classes;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-actuator\4.0.1\spring-boot-starter-actuator-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter\4.0.1\spring-boot-starter-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-logging\4.0.1\spring-boot-starter-logging-4.0.1.jar;C:\Users\Damasco\.m2\repository\ch\qos\logback\logback-classic\1.5.22\logback-classic-1.5.22.jar;C:\Users\Damasco\.m2\repository\ch\qos\logback\logback-core\1.5.22\logback-core-1.5.22.jar;C:\Users\Damasco\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.25.3\log4j-to-slf4j-2.25.3.jar;C:\Users\Damasco\.m2\repository\org\apache\logging\log4j\log4j-api\2.25.3\log4j-api-2.25.3.jar;C:\Users\Damasco\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\Damasco\.m2\repository\jakarta\annotation\jakarta.annotation-api\3.0.0\jakarta.annotation-api-3.0.0.jar;C:\Users\Damasco\.m2\repository\org\yaml\snakeyaml\2.5\snakeyaml-2.5.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-micrometer-metrics\4.0.1\spring-boot-starter-micrometer-metrics-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-micrometer-metrics\4.0.1\spring-boot-micrometer-metrics-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-micrometer-observation\4.0.1\spring-boot-micrometer-observation-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-actuator-autoconfigure\4.0.1\spring-boot-actuator-autoconfigure-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-actuator\4.0.1\spring-boot-actuator-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-health\4.0.1\spring-boot-health-4.0.1.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-observation\1.16.1\micrometer-observation-1.16.1.jar;C:\Users\Damasco\.m2\repository\org\jspecify\jspecify\1.0.0\jspecify-1.0.0.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-commons\1.16.1\micrometer-commons-1.16.1.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-jakarta9\1.16.1\micrometer-jakarta9-1.16.1.jar;C:\Users\Damasco\.m2\repository\io\micrometer\micrometer-core\1.16.1\micrometer-core-1.16.1.jar;C:\Users\Damasco\.m2\repository\org\hdrhistogram\HdrHistogram\2.2.2\HdrHistogram-2.2.2.jar;C:\Users\Damasco\.m2\repository\org\latencyutils\LatencyUtils\2.0.3\LatencyUtils-2.0.3.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-thymeleaf\4.0.1\spring-boot-starter-thymeleaf-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-thymeleaf\4.0.1\spring-boot-thymeleaf-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\thymeleaf\thymeleaf-spring6\3.1.3.RELEASE\thymeleaf-spring6-3.1.3.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\thymeleaf\thymeleaf\3.1.3.RELEASE\thymeleaf-3.1.3.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\attoparser\attoparser\2.0.7.RELEASE\attoparser-2.0.7.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\unbescape\unbescape\1.1.6.RELEASE\unbescape-1.1.6.RELEASE.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-web\7.0.2\spring-web-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-aop\7.0.2\spring-aop-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-beans\7.0.2\spring-beans-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-core\7.0.2\spring-core-7.0.2.jar;C:\Users\Damasco\.m2\repository\commons-logging\commons-logging\1.3.5\commons-logging-1.3.5.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-websocket\4.0.1\spring-boot-starter-websocket-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-websocket\4.0.1\spring-boot-websocket-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-messaging\7.0.2\spring-messaging-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-websocket\7.0.2\spring-websocket-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-mail\4.0.1\spring-boot-starter-mail-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-mail\4.0.1\spring-boot-mail-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-context-support\7.0.2\spring-context-support-7.0.2.jar;C:\Users\Damasco\.m2\repository\jakarta\mail\jakarta.mail-api\2.1.5\jakarta.mail-api-2.1.5.jar;C:\Users\Damasco\.m2\repository\org\eclipse\angus\angus-mail\2.0.5\angus-mail-2.0.5.jar;C:\Users\Damasco\.m2\repository\org\eclipse\angus\angus-activation\2.0.3\angus-activation-2.0.3.jar;C:\Users\Damasco\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.20.1\jackson-databind-2.20.1.jar;C:\Users\Damasco\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.20\jackson-annotations-2.20.jar;C:\Users\Damasco\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.20.1\jackson-core-2.20.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-h2console\4.0.1\spring-boot-h2console-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot\4.0.1\spring-boot-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-context\7.0.2\spring-context-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-expression\7.0.2\spring-expression-7.0.2.jar;C:\Users\Damasco\.m2\repository\jakarta\servlet\jakarta.servlet-api\6.1.0\jakarta.servlet-api-6.1.0.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\4.0.1\spring-boot-starter-data-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\4.0.1\spring-boot-starter-jdbc-4.0.1.jar;C:\Users\Damasco\.m2\repository\com\zaxxer\HikariCP\7.0.2\HikariCP-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-data-jpa\4.0.1\spring-boot-data-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-data-commons\4.0.1\spring-boot-data-commons-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-persistence\4.0.1\spring-boot-persistence-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\data\spring-data-commons\4.0.1\spring-data-commons-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-hibernate\4.0.1\spring-boot-hibernate-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jpa\4.0.1\spring-boot-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.2.0\jakarta.persistence-api-3.2.0.jar;C:\Users\Damasco\.m2\repository\org\hibernate\orm\hibernate-core\7.2.0.Final\hibernate-core-7.2.0.Final.jar;C:\Users\Damasco\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Damasco\.m2\repository\org\hibernate\models\hibernate-models\1.0.1\hibernate-models-1.0.1.jar;C:\Users\Damasco\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.6\jaxb-runtime-4.0.6.jar;C:\Users\Damasco\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.6\jaxb-core-4.0.6.jar;C:\Users\Damasco\.m2\repository\org\glassfish\jaxb\txw2\4.0.6\txw2-4.0.6.jar;C:\Users\Damasco\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Damasco\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-orm\7.0.2\spring-orm-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\data\spring-data-jpa\4.0.1\spring-data-jpa-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-tx\7.0.2\spring-tx-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\antlr\antlr4-runtime\4.13.2\antlr4-runtime-4.13.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-aspects\7.0.2\spring-aspects-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\aspectj\aspectjweaver\1.9.25.1\aspectjweaver-1.9.25.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jdbc\4.0.1\spring-boot-jdbc-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-sql\4.0.1\spring-boot-sql-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-transaction\4.0.1\spring-boot-transaction-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-jdbc\7.0.2\spring-jdbc-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-security\4.0.1\spring-boot-starter-security-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-security\4.0.1\spring-boot-security-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-config\7.0.2\spring-security-config-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-core\7.0.2\spring-security-core-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-crypto\7.0.2\spring-security-crypto-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-web\7.0.2\spring-security-web-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-validation\4.0.1\spring-boot-starter-validation-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-validation\4.0.1\spring-boot-validation-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\11.0.15\tomcat-embed-el-11.0.15.jar;C:\Users\Damasco\.m2\repository\org\hibernate\validator\hibernate-validator\9.0.1.Final\hibernate-validator-9.0.1.Final.jar;C:\Users\Damasco\.m2\repository\jakarta\validation\jakarta.validation-api\3.1.1\jakarta.validation-api-3.1.1.jar;C:\Users\Damasco\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\Damasco\.m2\repository\com\fasterxml\classmate\1.7.1\classmate-1.7.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc\4.0.1\spring-boot-starter-webmvc-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jackson\4.0.1\spring-boot-starter-jackson-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jackson\4.0.1\spring-boot-jackson-4.0.1.jar;C:\Users\Damasco\.m2\repository\tools\jackson\core\jackson-databind\3.0.3\jackson-databind-3.0.3.jar;C:\Users\Damasco\.m2\repository\tools\jackson\core\jackson-core\3.0.3\jackson-core-3.0.3.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\4.0.1\spring-boot-starter-tomcat-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat-runtime\4.0.1\spring-boot-starter-tomcat-runtime-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\11.0.15\tomcat-embed-core-11.0.15.jar;C:\Users\Damasco\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\11.0.15\tomcat-embed-websocket-11.0.15.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-tomcat\4.0.1\spring-boot-tomcat-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-http-converter\4.0.1\spring-boot-http-converter-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-webmvc\4.0.1\spring-boot-webmvc-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-servlet\4.0.1\spring-boot-servlet-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-webmvc\7.0.2\spring-webmvc-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-web\4.0.1\spring-boot-starter-web-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-devtools\4.0.1\spring-boot-devtools-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\4.0.1\spring-boot-autoconfigure-4.0.1.jar;C:\Users\Damasco\.m2\repository\com\h2database\h2\2.4.240\h2-2.4.240.jar;C:\Users\Damasco\.m2\repository\org\projectlombok\lombok\1.18.42\lombok-1.18.42.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa-test\4.0.1\spring-boot-starter-data-jpa-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc-test\4.0.1\spring-boot-starter-jdbc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jdbc-test\4.0.1\spring-boot-jdbc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-data-jpa-test\4.0.1\spring-boot-data-jpa-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-jpa-test\4.0.1\spring-boot-jpa-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-security-test\4.0.1\spring-boot-starter-security-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-security-test\4.0.1\spring-boot-security-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\security\spring-security-test\7.0.2\spring-security-test-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-validation-test\4.0.1\spring-boot-starter-validation-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-webmvc-test\4.0.1\spring-boot-starter-webmvc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-jackson-test\4.0.1\spring-boot-starter-jackson-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-webmvc-test\4.0.1\spring-boot-webmvc-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-web-server\4.0.1\spring-boot-web-server-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-resttestclient\4.0.1\spring-boot-resttestclient-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-starter-test\4.0.1\spring-boot-starter-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-test\4.0.1\spring-boot-test-4.0.1.jar;C:\Users\Damasco\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\4.0.1\spring-boot-test-autoconfigure-4.0.1.jar;C:\Users\Damasco\.m2\repository\com\jayway\jsonpath\json-path\2.10.0\json-path-2.10.0.jar;C:\Users\Damasco\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\Damasco\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.4\jakarta.xml.bind-api-4.0.4.jar;C:\Users\Damasco\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.4\jakarta.activation-api-2.1.4.jar;C:\Users\Damasco\.m2\repository\net\minidev\json-smart\2.6.0\json-smart-2.6.0.jar;C:\Users\Damasco\.m2\repository\net\minidev\accessors-smart\2.6.0\accessors-smart-2.6.0.jar;C:\Users\Damasco\.m2\repository\org\ow2\asm\asm\9.7.1\asm-9.7.1.jar;C:\Users\Damasco\.m2\repository\org\assertj\assertj-core\3.27.6\assertj-core-3.27.6.jar;C:\Users\Damasco\.m2\repository\net\bytebuddy\byte-buddy\1.17.8\byte-buddy-1.17.8.jar;C:\Users\Damasco\.m2\repository\org\awaitility\awaitility\4.3.0\awaitility-4.3.0.jar;C:\Users\Damasco\.m2\repository\org\hamcrest\hamcrest\3.0\hamcrest-3.0.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter\6.0.1\junit-jupiter-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter-api\6.0.1\junit-jupiter-api-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Damasco\.m2\repository\org\junit\platform\junit-platform-commons\6.0.1\junit-platform-commons-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter-params\6.0.1\junit-jupiter-params-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\junit\jupiter\junit-jupiter-engine\6.0.1\junit-jupiter-engine-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\junit\platform\junit-platform-engine\6.0.1\junit-platform-engine-6.0.1.jar;C:\Users\Damasco\.m2\repository\org\mockito\mockito-core\5.20.0\mockito-core-5.20.0.jar;C:\Users\Damasco\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.8\byte-buddy-agent-1.17.8.jar;C:\Users\Damasco\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Damasco\.m2\repository\org\mockito\mockito-junit-jupiter\5.20.0\mockito-junit-jupiter-5.20.0.jar;C:\Users\Damasco\.m2\repository\org\skyscreamer\jsonassert\1.5.3\jsonassert-1.5.3.jar;C:\Users\Damasco\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\Damasco\.m2\repository\org\springframework\spring-test\7.0.2\spring-test-7.0.2.jar;C:\Users\Damasco\.m2\repository\org\xmlunit\xmlunit-core\2.10.4\xmlunit-core-2.10.4.jar;C:\Users\Damasco\.m2\repository\io\jsonwebtoken\jjwt-api\0.11.5\jjwt-api-0.11.5.jar;C:\Users\Damasco\.m2\repository\io\jsonwebtoken\jjwt-impl\0.11.5\jjwt-impl-0.11.5.jar;C:\Users\Damasco\.m2\repository\io\jsonwebtoken\jjwt-jackson\0.11.5\jjwt-jackson-0.11.5.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="C:\Users\Damasco"/>
     <property name="user.language" value="en"/>
@@ -28,13 +28,13 @@
     <property name="java.home" value="C:\Users\Damasco\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.15.6-hotspot"/>
     <property name="file.separator" value="\"/>
     <property name="basedir" value="C:\Users\Damasco\SpringBoot\appointment-system"/>
-    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="java.vm.compressedOopsMode" value="32-bit"/>
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="FILE_LOG_CHARSET" value="UTF-8"/>
     <property name="java.awt.headless" value="true"/>
-    <property name="surefire.real.class.path" value="C:\Users\Damasco\AppData\Local\Temp\surefire7549050193063512835\surefirebooter-20251226014219273_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Damasco\AppData\Local\Temp\surefire15754457353151225980\surefirebooter-20260102192910580_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.15+6"/>
@@ -54,11 +54,10 @@
     <property name="user.dir" value="C:\Users\Damasco\SpringBoot\appointment-system"/>
     <property name="os.arch" value="amd64"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="PID" value="6336"/>
+    <property name="PID" value="3260"/>
     <property name="sun.os.patch.level" value=""/>
     <property name="CONSOLE_LOG_CHARSET" value="windows-1252"/>
     <property name="native.encoding" value="Cp1252"/>
-    <property name="trimStackTrace" value="false"/>
     <property name="java.library.path" value="C:\Users\Damasco\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.15.6-hotspot\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;c:\Users\Damasco\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\debugCommand;c:\Users\Damasco\AppData\Roaming\Code\User\globalStorage\github.copilot-chat\copilotCli;C:\Program Files (x86)\VMware\VMware Workstation\bin\;C:\Program Files\Eclipse Adoptium\jdk-17.0.11.9-hotspot;C:\Program Files\Eclipse Adoptium\jdk-20.0.2.9-hotspot\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Users\Damasco\.config\herd\bin\nvm;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Program Files\Go\bin;C:\Program Files\Git LFS;C:\Program Files (x86)\ZeroTier\One\;C:\Program Files\PuTTY\;C:\Program Files (x86)\cloudflared\;C:\Program Files\Docker\Docker\resources\bin;C:\Users\Damasco\.config\herd\bin;C:\Users\Damasco\scoop\shims;c:\Users\Damasco\AppData\Local\Programs\Trae\bin;C:\Users\Damasco\flutter\bin;C:\Windows\system32;C:\Users\Damasco\AppData\Local\Android\Sdk\platform-tools;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\Damasco\AppData\Local\Android\Sdk;C:\path\to\Android\Sdk\emulator;C:\path\to\Android\Sdk\platform-tools;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\Users\Damasco\.config\herd\bin\nvm;C:\Program Files\nodejs;C:\Users\Damasco\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0;C:\Program Files\Git\cmd;C:\Program Files\dotnet\;C:\Users\Damasco\AppData\Local\Programs\Eclipse Adoptium\jdk-17.0.15.6-hotspot\bin;C:\Users\Damasco\AppData\Local\Programs\Eclipse Adoptium\jdk-21.0.7.6-hotspot\bin;C:\Program Files\Eclipse Adoptium\jdk-20.0.2.9-hotspot\bin;C:\Users\Damasco\AppData\Local\Microsoft\WindowsApps;C:\Users\Damasco\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Damasco\AppData\Local\GitHubDesktop\bin;C:\Users\Damasco\.dotnet\tools;C:\Users\Damasco\AppData\Local\Android\Sdkcmdline-tools\latest\bin;C:\Users\Damasco\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.13_qbz5n2kfra8p0\LocalCache\local-packages\Python313\site-packages;C:\Users\Damasco\Downloads\yt-dlp;C:\Users\Damasco\go\bin;C:\Users\Damasco\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\Damasco\AppData\Local\Programs\Windsurf\bin;C:\Program Files\apache-maven-3.9.12\bin;c:\Users\Damasco\.vscode\extensions\vscjava.vscode-java-debug-0.58.2025121609\bundled\scripts\noConfigScripts;."/>
     <property name="java.vm.info" value="mixed mode, sharing"/>
     <property name="java.vendor" value="Eclipse Adoptium"/>
@@ -66,11 +65,13 @@
     <property name="java.specification.maintenance.version" value="1"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
+    <property name="CONSOLE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n"/>
     <property name="LOGGED_APPLICATION_NAME" value="[appointment-system] "/>
   </properties>
-  <testcase name="contextLoads" classname="com.appointment.system.AppointmentSystemApplicationTests" time="0.361">
-    <system-out><![CDATA[01:42:20.475 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.appointment.system.AppointmentSystemApplicationTests]: AppointmentSystemApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-01:42:20.581 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.appointment.system.AppointmentSystemApplication for test class com.appointment.system.AppointmentSystemApplicationTests
+  <testcase name="contextLoads" classname="com.appointment.system.AppointmentSystemApplicationTests" time="0.973">
+    <system-out><![CDATA[19:29:11.906 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.appointment.system.AppointmentSystemApplicationTests]: AppointmentSystemApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+19:29:12.023 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.appointment.system.AppointmentSystemApplication for test class com.appointment.system.AppointmentSystemApplicationTests
+19:29:12.202 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -81,18 +82,19 @@
 
  :: Spring Boot ::                (v4.0.1)
 
-2025-12-26T01:42:21.044+03:00  INFO 6336 --- [appointment-system] [           main] c.a.s.AppointmentSystemApplicationTests  : Starting AppointmentSystemApplicationTests using Java 17.0.15 with PID 6336 (started by Damasco in C:\Users\Damasco\SpringBoot\appointment-system)
-2025-12-26T01:42:21.046+03:00  INFO 6336 --- [appointment-system] [           main] c.a.s.AppointmentSystemApplicationTests  : No active profile set, falling back to 1 default profile: "default"
-2025-12-26T01:42:22.006+03:00  INFO 6336 --- [appointment-system] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-12-26T01:42:22.081+03:00  INFO 6336 --- [appointment-system] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 62 ms. Found 1 JPA repository interface.
-2025-12-26T01:42:22.781+03:00  INFO 6336 --- [appointment-system] [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
-2025-12-26T01:42:22.871+03:00  INFO 6336 --- [appointment-system] [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.0.Final
-2025-12-26T01:42:23.512+03:00  INFO 6336 --- [appointment-system] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-12-26T01:42:23.555+03:00  INFO 6336 --- [appointment-system] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-12-26T01:42:23.755+03:00  INFO 6336 --- [appointment-system] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:appointmentsdb user=SA
-2025-12-26T01:42:23.757+03:00  INFO 6336 --- [appointment-system] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-12-26T01:42:23.781+03:00  WARN 6336 --- [appointment-system] [           main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-12-26T01:42:23.804+03:00  INFO 6336 --- [appointment-system] [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2026-01-02 19:29:12.560 [main] INFO  c.a.s.AppointmentSystemApplicationTests - Starting AppointmentSystemApplicationTests using Java 17.0.15 with PID 3260 (started by Damasco in C:\Users\Damasco\SpringBoot\appointment-system)
+2026-01-02 19:29:12.562 [main] INFO  c.a.s.AppointmentSystemApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-01-02 19:29:12.608 [main] DEBUG o.s.w.c.s.GenericWebApplicationContext - Refreshing org.springframework.web.context.support.GenericWebApplicationContext@713064e8
+2026-01-02 19:29:13.911 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-02 19:29:13.986 [main] INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 65 ms. Found 4 JPA repository interfaces.
+2026-01-02 19:29:14.950 [main] INFO  org.hibernate.orm.jpa - HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-01-02 19:29:15.120 [main] INFO  org.hibernate.orm.core - HHH000001: Hibernate ORM core version 7.2.0.Final
+2026-01-02 19:29:15.875 [main] INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-02 19:29:15.934 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-01-02 19:29:16.172 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:appointmentsdb user=SA
+2026-01-02 19:29:16.176 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-01-02 19:29:16.213 [main] WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-02 19:29:16.243 [main] INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
 	Database JDBC URL [jdbc:h2:mem:appointmentsdb]
 	Database driver: H2 JDBC Driver
 	Database dialect: H2Dialect
@@ -104,23 +106,579 @@
 	Pool: DataSourceConnectionProvider
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-12-26T01:42:24.666+03:00  INFO 6336 --- [appointment-system] [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-Hibernate: create table users (id bigint generated by default as identity, email varchar(255), name varchar(255), password varchar(255), role enum ('ADMIN','CUSTOMER','STAFF'), primary key (id))
-2025-12-26T01:42:24.736+03:00  INFO 6336 --- [appointment-system] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-12-26T01:42:24.845+03:00  INFO 6336 --- [appointment-system] [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-12-26T01:42:25.136+03:00  WARN 6336 --- [appointment-system] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-12-26T01:42:25.830+03:00  INFO 6336 --- [appointment-system] [           main] o.s.b.h.a.H2ConsoleAutoConfiguration     : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:appointmentsdb'
-2025-12-26T01:42:25.912+03:00  WARN 6336 --- [appointment-system] [           main] .s.a.UserDetailsServiceAutoConfiguration : 
+2026-01-02 19:29:18.735 [main] INFO  org.hibernate.orm.core - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table appointments (id bigint generated by default as identity, appointment_date_time timestamp(6) not null, approved_at timestamp(6), cancellation_reason varchar(1000), cancelled_at timestamp(6), created_at timestamp(6) not null, end_date_time timestamp(6) not null, notes varchar(2000), status enum ('APPROVED','CANCELLED','COMPLETED','PENDING') not null, updated_at timestamp(6), customer_id bigint not null, service_id bigint not null, staff_id bigint not null, primary key (id))
+Hibernate: create table services (id bigint generated by default as identity, created_at timestamp(6), description varchar(1000), duration integer not null, is_active boolean not null, name varchar(255) not null, price float(53) not null, provider_id bigint, primary key (id))
+Hibernate: create table users (id bigint generated by default as identity, address varchar(255), company_name varchar(255), created_at timestamp(6), email varchar(255), is_active boolean not null, license_number varchar(255), name varchar(255), password varchar(255), phone_number varchar(255), role enum ('ADMIN','CUSTOMER','STAFF'), specialty varchar(255), primary key (id))
+Hibernate: create table working_schedules (id bigint generated by default as identity, created_at timestamp(6), day_of_week enum ('FRIDAY','MONDAY','SATURDAY','SUNDAY','THURSDAY','TUESDAY','WEDNESDAY') not null, end_time time(0) not null, is_holiday boolean not null, start_time time(0) not null, staff_id bigint not null, primary key (id))
+Hibernate: alter table if exists working_schedules drop constraint if exists UK3prbdx0pb9orw6qv7rchy1jr0
+Hibernate: alter table if exists working_schedules add constraint UK3prbdx0pb9orw6qv7rchy1jr0 unique (staff_id, day_of_week)
+Hibernate: alter table if exists appointments add constraint FK4q5rt20vvnkv7eohwq22l3ayy foreign key (customer_id) references users
+Hibernate: alter table if exists appointments add constraint FK5iltr7k9pows18hk8nc101vc1 foreign key (service_id) references services
+Hibernate: alter table if exists appointments add constraint FK88083ngr9rv9wj4p916pj40c2 foreign key (staff_id) references users
+Hibernate: alter table if exists services add constraint FKe0b0175l27ffcser90cjoots1 foreign key (provider_id) references users
+Hibernate: alter table if exists working_schedules add constraint FKrqlab8rwtuvp50ncj234lj60h foreign key (staff_id) references users
+2026-01-02 19:29:18.867 [main] INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-02 19:29:19.136 [main] INFO  o.s.d.j.r.q.QueryEnhancerFactories - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-01-02 19:29:21.158 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-01-02 19:29:21.551 [main] DEBUG o.s.w.s.s.s.WebSocketHandlerMapping - Patterns [/ws/**, /ws] in 'stompWebSocketHandlerMapping'
+2026-01-02 19:29:21.600 [main] WARN  o.s.b.j.a.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-02 19:29:21.663 [main] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.a.s.c.AdminAppointmentController:
+	
+2026-01-02 19:29:21.664 [main] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.a.s.c.AdminScheduleController:
+	
+2026-01-02 19:29:21.664 [main] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.a.s.c.AppointmentController:
+	
+2026-01-02 19:29:21.664 [main] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.a.s.c.AuthController:
+	
+2026-01-02 19:29:21.664 [main] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.a.s.c.DashboardController:
+	
+2026-01-02 19:29:21.664 [main] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.a.s.c.HomeController:
+	
+2026-01-02 19:29:21.665 [main] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.a.s.c.ScheduleController:
+	
+2026-01-02 19:29:21.665 [main] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.a.s.c.ServiceController:
+	
+2026-01-02 19:29:21.665 [main] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	c.a.s.c.UserController:
+	
+2026-01-02 19:29:21.669 [main] DEBUG o.s.w.s.m.WebSocketAnnotationMethodMessageHandler - 
+	o.s.b.w.a.e.BasicErrorController:
+	
+2026-01-02 19:29:22.387 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerMapping - 51 mappings in 'requestMappingHandlerMapping'
+2026-01-02 19:29:22.434 [main] DEBUG o.s.w.s.h.SimpleUrlHandlerMapping - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2026-01-02 19:29:22.479 [main] DEBUG o.s.w.s.m.m.a.RequestMappingHandlerAdapter - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2026-01-02 19:29:22.608 [main] DEBUG o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2026-01-02 19:29:22.886 [main] INFO  o.s.b.h.a.H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:appointmentsdb'
+2026-01-02 19:29:23.251 [main] INFO  o.s.b.a.e.web.EndpointLinksResolver - Exposing 1 endpoint beneath base path '/actuator'
+2026-01-02 19:29:23.357 [main] DEBUG org.springframework.web.SimpLogging - clientOutboundChannel added SubProtocolWebSocketHandler[StompSubProtocolHandler[v10.stomp, v11.stomp, v12.stomp]]
+2026-01-02 19:29:23.358 [main] DEBUG org.springframework.web.SimpLogging - clientInboundChannel added WebSocketAnnotationMethodMessageHandler[prefixes=[/app/]]
+2026-01-02 19:29:23.358 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Starting...
+2026-01-02 19:29:23.358 [main] DEBUG org.springframework.web.SimpLogging - clientInboundChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5afa5d7]
+2026-01-02 19:29:23.358 [main] DEBUG org.springframework.web.SimpLogging - brokerChannel added SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5afa5d7]
+2026-01-02 19:29:23.359 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@5afa5d7]]
+2026-01-02 19:29:23.360 [main] INFO  o.s.m.s.b.SimpleBrokerMessageHandler - Started.
+2026-01-02 19:29:23.360 [main] DEBUG org.springframework.web.SimpLogging - clientInboundChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
+2026-01-02 19:29:23.360 [main] DEBUG org.springframework.web.SimpLogging - brokerChannel added UserDestinationMessageHandler[DefaultUserDestinationResolver[prefix=/user/]]
+2026-01-02 19:29:23.371 [main] INFO  c.a.s.AppointmentSystemApplicationTests - Started AppointmentSystemApplicationTests in 11.181 seconds (process running for 12.573)
 
-Using generated security password: fd63fc38-a989-4d02-8cda-9e98dd08116a
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:23.444]
+├─ Class: $Proxy184
+├─ Method: findByEmail
+└─ Signature: UserRepository.findByEmail(..)
+──────────────────────────────────────────────────────────────
+Hibernate: select u1_0.id,u1_0.address,u1_0.company_name,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.license_number,u1_0.name,u1_0.password,u1_0.phone_number,u1_0.role,u1_0.specialty from users u1_0 where u1_0.email=?
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (191 ms)
+├─ Class: $Proxy184
+├─ Method: findByEmail
+└─ Returned: Optional
+══════════════════════════════════════════════════════════════════
 
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-12-26T01:42:25.947+03:00  INFO 6336 --- [appointment-system] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2025-12-26T01:42:26.165+03:00  INFO 6336 --- [appointment-system] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2025-12-26T01:42:26.379+03:00  INFO 6336 --- [appointment-system] [           main] c.a.s.AppointmentSystemApplicationTests  : Started AppointmentSystemApplicationTests in 5.628 seconds (process running for 6.945)
-Hibernate: select u1_0.id,u1_0.email,u1_0.name,u1_0.password,u1_0.role from users u1_0 where u1_0.email=?
-Hibernate: insert into users (email,name,password,role,id) values (?,?,?,?,default)
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:23.734]
+├─ Class: $Proxy184
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into users (address,company_name,created_at,email,is_active,license_number,name,password,phone_number,role,specialty,id) values (?,?,?,?,?,?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (76 ms)
+├─ Class: $Proxy184
+├─ Method: save
+└─ Returned: User
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:23.810]
+├─ Class: $Proxy184
+├─ Method: findByEmail
+└─ Signature: UserRepository.findByEmail(..)
+──────────────────────────────────────────────────────────────
+Hibernate: select u1_0.id,u1_0.address,u1_0.company_name,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.license_number,u1_0.name,u1_0.password,u1_0.phone_number,u1_0.role,u1_0.specialty from users u1_0 where u1_0.email=?
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (3 ms)
+├─ Class: $Proxy184
+├─ Method: findByEmail
+└─ Returned: Optional
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:23.895]
+├─ Class: $Proxy184
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into users (address,company_name,created_at,email,is_active,license_number,name,password,phone_number,role,specialty,id) values (?,?,?,?,?,?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (2 ms)
+├─ Class: $Proxy184
+├─ Method: save
+└─ Returned: User
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:23.899]
+├─ Class: $Proxy184
+├─ Method: findByEmail
+└─ Signature: UserRepository.findByEmail(..)
+──────────────────────────────────────────────────────────────
+Hibernate: select u1_0.id,u1_0.address,u1_0.company_name,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.license_number,u1_0.name,u1_0.password,u1_0.phone_number,u1_0.role,u1_0.specialty from users u1_0 where u1_0.email=?
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (2 ms)
+├─ Class: $Proxy184
+├─ Method: findByEmail
+└─ Returned: Optional
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:23.985]
+├─ Class: $Proxy184
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into users (address,company_name,created_at,email,is_active,license_number,name,password,phone_number,role,specialty,id) values (?,?,?,?,?,?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (3 ms)
+├─ Class: $Proxy184
+├─ Method: save
+└─ Returned: User
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:23.989]
+├─ Class: $Proxy184
+├─ Method: findByEmail
+└─ Signature: UserRepository.findByEmail(..)
+──────────────────────────────────────────────────────────────
+Hibernate: select u1_0.id,u1_0.address,u1_0.company_name,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.license_number,u1_0.name,u1_0.password,u1_0.phone_number,u1_0.role,u1_0.specialty from users u1_0 where u1_0.email=?
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (1 ms)
+├─ Class: $Proxy184
+├─ Method: findByEmail
+└─ Returned: Optional
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.067]
+├─ Class: $Proxy184
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into users (address,company_name,created_at,email,is_active,license_number,name,password,phone_number,role,specialty,id) values (?,?,?,?,?,?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (4 ms)
+├─ Class: $Proxy184
+├─ Method: save
+└─ Returned: User
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.072]
+├─ Class: $Proxy184
+├─ Method: findByEmail
+└─ Signature: UserRepository.findByEmail(..)
+──────────────────────────────────────────────────────────────
+Hibernate: select u1_0.id,u1_0.address,u1_0.company_name,u1_0.created_at,u1_0.email,u1_0.is_active,u1_0.license_number,u1_0.name,u1_0.password,u1_0.phone_number,u1_0.role,u1_0.specialty from users u1_0 where u1_0.email=?
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (2 ms)
+├─ Class: $Proxy184
+├─ Method: findByEmail
+└─ Returned: Optional
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.169]
+├─ Class: $Proxy184
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into users (address,company_name,created_at,email,is_active,license_number,name,password,phone_number,role,specialty,id) values (?,?,?,?,?,?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (21 ms)
+├─ Class: $Proxy184
+├─ Method: save
+└─ Returned: User
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.204]
+├─ Class: $Proxy185
+├─ Method: count
+└─ Signature: CrudRepository.count()
+──────────────────────────────────────────────────────────────
+Hibernate: select count(*) from services s1_0
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (113 ms)
+├─ Class: $Proxy185
+├─ Method: count
+└─ Returned: Long
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.319]
+├─ Class: $Proxy185
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into services (created_at,description,duration,is_active,name,price,provider_id,id) values (?,?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (11 ms)
+├─ Class: $Proxy185
+├─ Method: save
+└─ Returned: Service
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.331]
+├─ Class: $Proxy185
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into services (created_at,description,duration,is_active,name,price,provider_id,id) values (?,?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (4 ms)
+├─ Class: $Proxy185
+├─ Method: save
+└─ Returned: Service
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.336]
+├─ Class: $Proxy185
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into services (created_at,description,duration,is_active,name,price,provider_id,id) values (?,?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (2 ms)
+├─ Class: $Proxy185
+├─ Method: save
+└─ Returned: Service
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.338]
+├─ Class: $Proxy185
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into services (created_at,description,duration,is_active,name,price,provider_id,id) values (?,?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (5 ms)
+├─ Class: $Proxy185
+├─ Method: save
+└─ Returned: Service
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.345]
+├─ Class: $Proxy186
+├─ Method: count
+└─ Signature: CrudRepository.count()
+──────────────────────────────────────────────────────────────
+Hibernate: select count(*) from working_schedules ws1_0
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (7 ms)
+├─ Class: $Proxy186
+├─ Method: count
+└─ Returned: Long
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.356]
+├─ Class: $Proxy186
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into working_schedules (created_at,day_of_week,end_time,is_holiday,staff_id,start_time,id) values (?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (8 ms)
+├─ Class: $Proxy186
+├─ Method: save
+└─ Returned: WorkingSchedule
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.366]
+├─ Class: $Proxy186
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into working_schedules (created_at,day_of_week,end_time,is_holiday,staff_id,start_time,id) values (?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (3 ms)
+├─ Class: $Proxy186
+├─ Method: save
+└─ Returned: WorkingSchedule
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.370]
+├─ Class: $Proxy186
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into working_schedules (created_at,day_of_week,end_time,is_holiday,staff_id,start_time,id) values (?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (3 ms)
+├─ Class: $Proxy186
+├─ Method: save
+└─ Returned: WorkingSchedule
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.374]
+├─ Class: $Proxy186
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into working_schedules (created_at,day_of_week,end_time,is_holiday,staff_id,start_time,id) values (?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (5 ms)
+├─ Class: $Proxy186
+├─ Method: save
+└─ Returned: WorkingSchedule
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.379]
+├─ Class: $Proxy186
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into working_schedules (created_at,day_of_week,end_time,is_holiday,staff_id,start_time,id) values (?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (5 ms)
+├─ Class: $Proxy186
+├─ Method: save
+└─ Returned: WorkingSchedule
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.384]
+├─ Class: $Proxy186
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into working_schedules (created_at,day_of_week,end_time,is_holiday,staff_id,start_time,id) values (?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (3 ms)
+├─ Class: $Proxy186
+├─ Method: save
+└─ Returned: WorkingSchedule
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.387]
+├─ Class: $Proxy186
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into working_schedules (created_at,day_of_week,end_time,is_holiday,staff_id,start_time,id) values (?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (4 ms)
+├─ Class: $Proxy186
+├─ Method: save
+└─ Returned: WorkingSchedule
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.393]
+├─ Class: $Proxy186
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into working_schedules (created_at,day_of_week,end_time,is_holiday,staff_id,start_time,id) values (?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (5 ms)
+├─ Class: $Proxy186
+├─ Method: save
+└─ Returned: WorkingSchedule
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.398]
+├─ Class: $Proxy186
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into working_schedules (created_at,day_of_week,end_time,is_holiday,staff_id,start_time,id) values (?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (2 ms)
+├─ Class: $Proxy186
+├─ Method: save
+└─ Returned: WorkingSchedule
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.401]
+├─ Class: $Proxy186
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into working_schedules (created_at,day_of_week,end_time,is_holiday,staff_id,start_time,id) values (?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (2 ms)
+├─ Class: $Proxy186
+├─ Method: save
+└─ Returned: WorkingSchedule
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.404]
+├─ Class: $Proxy186
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into working_schedules (created_at,day_of_week,end_time,is_holiday,staff_id,start_time,id) values (?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (2 ms)
+├─ Class: $Proxy186
+├─ Method: save
+└─ Returned: WorkingSchedule
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.408]
+├─ Class: $Proxy189
+├─ Method: count
+└─ Signature: CrudRepository.count()
+──────────────────────────────────────────────────────────────
+Hibernate: select count(*) from appointments a1_0
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (4 ms)
+├─ Class: $Proxy189
+├─ Method: count
+└─ Returned: Long
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.413]
+├─ Class: $Proxy185
+├─ Method: findByIsActiveTrue
+└─ Signature: ServiceRepository.findByIsActiveTrue()
+──────────────────────────────────────────────────────────────
+Hibernate: select s1_0.id,s1_0.created_at,s1_0.description,s1_0.duration,s1_0.is_active,s1_0.name,s1_0.price,s1_0.provider_id from services s1_0 where s1_0.is_active=true
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (28 ms)
+├─ Class: $Proxy185
+├─ Method: findByIsActiveTrue
+└─ Returned: 4 item(s)
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.442]
+├─ Class: $Proxy185
+├─ Method: findByIsActiveTrue
+└─ Signature: ServiceRepository.findByIsActiveTrue()
+──────────────────────────────────────────────────────────────
+Hibernate: select s1_0.id,s1_0.created_at,s1_0.description,s1_0.duration,s1_0.is_active,s1_0.name,s1_0.price,s1_0.provider_id from services s1_0 where s1_0.is_active=true
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (5 ms)
+├─ Class: $Proxy185
+├─ Method: findByIsActiveTrue
+└─ Returned: 4 item(s)
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.449]
+├─ Class: $Proxy189
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into appointments (appointment_date_time,approved_at,cancellation_reason,cancelled_at,created_at,customer_id,end_date_time,notes,service_id,staff_id,status,updated_at,id) values (?,?,?,?,?,?,?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (11 ms)
+├─ Class: $Proxy189
+├─ Method: save
+└─ Returned: Appointment
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.461]
+├─ Class: $Proxy189
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into appointments (appointment_date_time,approved_at,cancellation_reason,cancelled_at,created_at,customer_id,end_date_time,notes,service_id,staff_id,status,updated_at,id) values (?,?,?,?,?,?,?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (8 ms)
+├─ Class: $Proxy189
+├─ Method: save
+└─ Returned: Appointment
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.469]
+├─ Class: $Proxy189
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into appointments (appointment_date_time,approved_at,cancellation_reason,cancelled_at,created_at,customer_id,end_date_time,notes,service_id,staff_id,status,updated_at,id) values (?,?,?,?,?,?,?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (16 ms)
+├─ Class: $Proxy189
+├─ Method: save
+└─ Returned: Appointment
+══════════════════════════════════════════════════════════════════
+
+
+══════════════════════════════════════════════════════════════════
+┌──▶️  METHOD START  [19:29:24.488]
+├─ Class: $Proxy189
+├─ Method: save
+└─ Signature: CrudRepository.save(..)
+──────────────────────────────────────────────────────────────
+Hibernate: insert into appointments (appointment_date_time,approved_at,cancellation_reason,cancelled_at,created_at,customer_id,end_date_time,notes,service_id,staff_id,status,updated_at,id) values (?,?,?,?,?,?,?,?,?,?,?,?,default)
+──────────────────────────────────────────────────────────────
+┌──✅  SUCCESS  (9 ms)
+├─ Class: $Proxy189
+├─ Method: save
+└─ Returned: Appointment
+══════════════════════════════════════════════════════════════════
+
 ]]></system-out>
   </testcase>
 </testsuite>
