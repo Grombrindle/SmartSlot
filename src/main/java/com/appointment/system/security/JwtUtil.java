@@ -9,9 +9,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.security.MessageDigest;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 
 @Component
@@ -22,6 +22,10 @@ public class JwtUtil {
     
     @Value("${jwt.expiration}")
     private Long expiration;
+    
+    // Simple in-memory storage for token hashes
+    private final Map<String, String> tokenHashStorage = new ConcurrentHashMap<>();
+    private final Map<String, String> hashToTokenStorage = new ConcurrentHashMap<>();
     
     private Key getSigningKey() {
         return Keys.hmacShaKeyFor(secret.getBytes());
@@ -70,5 +74,76 @@ public class JwtUtil {
     public Boolean validateToken(String token, UserDetails userDetails) {
         final String username = extractUsername(token);
         return (username.equals(userDetails.getUsername()) && !isTokenExpired(token));
+    }
+    
+    // NEW: Generate and store token hash
+    public String generateAndStoreToken(String username) {
+        String token = generateToken(username);
+        String tokenHash = hashSHA256(token);
+        
+        // Store both mappings for quick lookup
+        tokenHashStorage.put(username, tokenHash);
+        hashToTokenStorage.put(tokenHash, token);
+        
+        return tokenHash;
+    }
+    
+    // NEW: Get original token from hash
+    public String getTokenFromHash(String tokenHash) {
+        return hashToTokenStorage.get(tokenHash);
+    }
+    
+    // NEW: Remove token (for logout)
+    public void removeToken(String tokenHash) {
+        String token = hashToTokenStorage.get(tokenHash);
+        if (token != null) {
+            String username = extractUsername(token);
+            tokenHashStorage.remove(username);
+            hashToTokenStorage.remove(tokenHash);
+        }
+    }
+    
+    // NEW: Validate hash and return username
+    public String validateHashAndGetUsername(String tokenHash) {
+        String token = getTokenFromHash(tokenHash);
+        if (token == null) {
+            return null;
+        }
+        
+        try {
+            String username = extractUsername(token);
+            if (!isTokenExpired(token)) {
+                return username;
+            } else {
+                // Clean up expired token
+                removeToken(tokenHash);
+                return null;
+            }
+        } catch (Exception e) {
+            // Token is invalid
+            removeToken(tokenHash);
+            return null;
+        }
+    }
+    
+    // NEW: Simple SHA-256 hash function
+    private String hashSHA256(String input) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hashBytes = digest.digest(input.getBytes());
+            
+            // Convert byte array to hex string
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hashBytes) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) {
+                    hexString.append('0');
+                }
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (Exception e) {
+            throw new RuntimeException("Error creating hash", e);
+        }
     }
 }
