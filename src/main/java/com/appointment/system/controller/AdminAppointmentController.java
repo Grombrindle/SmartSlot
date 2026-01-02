@@ -2,8 +2,8 @@ package com.appointment.system.controller;
 
 import com.appointment.system.enums.AppointmentStatus;
 import com.appointment.system.model.Appointment;
-import com.appointment.system.service.AppointmentService;
-import com.appointment.system.service.UserService;
+import com.appointment.system.service.impl.AppointmentServiceImpl;
+import com.appointment.system.service.impl.UserServiceImpl;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -25,12 +25,12 @@ import java.util.stream.Collectors;
 @PreAuthorize("hasRole('ADMIN')")
 public class AdminAppointmentController {
 
-    private final AppointmentService appointmentService;
-    private final UserService userService;
+    private final AppointmentServiceImpl AppointmentServiceImpl;
+    private final UserServiceImpl UserServiceImpl;
 
-    public AdminAppointmentController(AppointmentService appointmentService, UserService userService) {
-        this.appointmentService = appointmentService;
-        this.userService = userService;
+    public AdminAppointmentController(AppointmentServiceImpl AppointmentServiceImpl, UserServiceImpl UserServiceImpl) {
+        this.AppointmentServiceImpl = AppointmentServiceImpl;
+        this.UserServiceImpl = UserServiceImpl;
     }
 
     @GetMapping("/appointments")
@@ -49,7 +49,7 @@ public class AdminAppointmentController {
                 LocalDate.parse(to).plusDays(1).atStartOfDay().minusSeconds(1) : 
                 LocalDateTime.now().plusMonths(1);
 
-        List<Appointment> appointments = appointmentService.getAppointmentsByDateRange(startDate, endDate);
+        List<Appointment> appointments = AppointmentServiceImpl.getAppointmentsByDateRange(startDate, endDate);
         
         if (status != null && !status.isEmpty()) {
             try {

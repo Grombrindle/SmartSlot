@@ -9,9 +9,9 @@ import com.appointment.system.enums.AppointmentStatus;
 import com.appointment.system.exception.BusinessException;
 import com.appointment.system.exception.NotFoundException;
 import com.appointment.system.model.Appointment;
-import com.appointment.system.service.AppointmentService;
-import com.appointment.system.service.UserService;
-import com.appointment.system.service.WorkingScheduleService;
+import com.appointment.system.service.impl.AppointmentServiceImpl;
+import com.appointment.system.service.impl.UserServiceImpl;
+import com.appointment.system.service.impl.WorkingScheduleServiceImpl;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -35,16 +35,16 @@ import java.util.stream.Collectors;
 @RequestMapping("/api/appointments")
 public class AppointmentController extends BaseController {
 
-    private final AppointmentService appointmentService;
-    private final UserService userService;
-    private final WorkingScheduleService workingScheduleService;
+    private final AppointmentServiceImpl AppointmentServiceImpl;
+    private final UserServiceImpl UserServiceImpl;
+    private final WorkingScheduleServiceImpl WorkingScheduleServiceImpl;
 
-    public AppointmentController(AppointmentService appointmentService, 
-                               UserService userService,
-                               WorkingScheduleService workingScheduleService) {
-        this.appointmentService = appointmentService;
-        this.userService = userService;
-        this.workingScheduleService = workingScheduleService;
+    public AppointmentController(AppointmentServiceImpl AppointmentServiceImpl, 
+                               UserServiceImpl UserServiceImpl,
+                               WorkingScheduleServiceImpl WorkingScheduleServiceImpl) {
+        this.AppointmentServiceImpl = AppointmentServiceImpl;
+        this.UserServiceImpl = UserServiceImpl;
+        this.WorkingScheduleServiceImpl = WorkingScheduleServiceImpl;
 
     }
 
@@ -64,7 +64,7 @@ public class AppointmentController extends BaseController {
         LocalDateTime startDate = from != null ? from.atStartOfDay() : LocalDateTime.now().minusMonths(1);
         LocalDateTime endDate = to != null ? to.plusDays(1).atStartOfDay().minusSeconds(1) : LocalDateTime.now().plusMonths(1);
         
-        List<Appointment> appointments = appointmentService.getAppointmentsByDateRange(startDate, endDate);
+        List<Appointment> appointments = AppointmentServiceImpl.getAppointmentsByDateRange(startDate, endDate);
         
         if (status != null && !status.isEmpty()) {
             try {
@@ -94,7 +94,7 @@ public class AppointmentController extends BaseController {
     @GetMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ApiResponse<AppointmentResponse>> getAppointmentById(@PathVariable Long id) {
-        Appointment appointment = appointmentService.getAppointmentById(id)
+        Appointment appointment = AppointmentServiceImpl.getAppointmentById(id)
                 .orElseThrow(() -> new NotFoundException("Appointment not found"));
         return ok(AppointmentResponse.from(appointment), "Appointment retrieved successfully");
     }
@@ -102,7 +102,7 @@ public class AppointmentController extends BaseController {
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ApiResponse<Void>> deleteAppointment(@PathVariable Long id) {
-        appointmentService.deleteAppointment(id);
+        AppointmentServiceImpl.deleteAppointment(id);
         return ok(null, "Appointment deleted successfully");
     }
     
@@ -111,7 +111,7 @@ public class AppointmentController extends BaseController {
     public ResponseEntity<ApiResponse<AppointmentResponse>> updateAppointmentStatus(
             @PathVariable Long id,
             @Valid @RequestBody UpdateAppointmentStatusRequestDTO requestDTO) {
-        Appointment appointment = appointmentService.updateAppointmentStatus(id, requestDTO);
+        Appointment appointment = AppointmentServiceImpl.updateAppointmentStatus(id, requestDTO);
         return ok(AppointmentResponse.from(appointment), "Appointment status updated successfully");
     }
 
@@ -124,7 +124,7 @@ public class AppointmentController extends BaseController {
     public ResponseEntity<ApiResponse<AppointmentResponse>> bookAppointment(
             @Valid @RequestBody AppointmentRequestDTO requestDTO) {
         Long customerId = getCurrentUserId();
-        Appointment appointment = appointmentService.bookAppointment(requestDTO, customerId);
+        Appointment appointment = AppointmentServiceImpl.bookAppointment(requestDTO, customerId);
         return created(AppointmentResponse.from(appointment), "Appointment booked successfully");
     }
     
@@ -132,7 +132,7 @@ public class AppointmentController extends BaseController {
 @PreAuthorize("hasRole('CUSTOMER')")
 public ResponseEntity<ApiResponse<List<AppointmentResponse>>> getCustomerAppointments() {
     Long customerId = getCurrentUserId();
-    List<Appointment> appointments = appointmentService.getAppointmentsByCustomer(customerId);
+    List<Appointment> appointments = AppointmentServiceImpl.getAppointmentsByCustomer(customerId);
     List<AppointmentResponse> responses = appointments.stream()
             .map(AppointmentResponse::from)
             .collect(Collectors.toList());
@@ -145,14 +145,14 @@ public ResponseEntity<ApiResponse<List<AppointmentResponse>>> getCustomerAppoint
             @PathVariable Long id,
             @RequestParam String reason) {
         // Verify ownership first
-        Appointment appointment = appointmentService.getAppointmentById(id)
+        Appointment appointment = AppointmentServiceImpl.getAppointmentById(id)
                 .orElseThrow(() -> new NotFoundException("Appointment not found"));
         
         if (!appointment.getCustomer().getId().equals(getCurrentUserId())) {
             throw new BusinessException("You can only cancel your own appointments");
         }
         
-        appointmentService.cancelAppointment(id, reason);
+        AppointmentServiceImpl.cancelAppointment(id, reason);
         return ok(AppointmentResponse.from(appointment), "Appointment cancelled successfully");
     }
 
@@ -164,7 +164,7 @@ public ResponseEntity<ApiResponse<List<AppointmentResponse>>> getCustomerAppoint
     @PreAuthorize("hasRole('STAFF')")
     public ResponseEntity<ApiResponse<List<AppointmentResponse>>> getStaffAppointments() {
         Long staffId = getCurrentUserId();
-        List<Appointment> appointments = appointmentService.getAppointmentsByStaff(staffId);
+        List<Appointment> appointments = AppointmentServiceImpl.getAppointmentsByStaff(staffId);
         List<AppointmentResponse> responses = appointments.stream()
                 .map(AppointmentResponse::from)
                 .collect(Collectors.toList());
@@ -174,7 +174,7 @@ public ResponseEntity<ApiResponse<List<AppointmentResponse>>> getCustomerAppoint
     @GetMapping("/staff/pending")
     @PreAuthorize("hasRole('STAFF')")
     public ResponseEntity<ApiResponse<List<AppointmentResponse>>> getPendingAppointments() {
-        List<Appointment> appointments = appointmentService.getPendingAppointments();
+        List<Appointment> appointments = AppointmentServiceImpl.getPendingAppointments();
         List<AppointmentResponse> responses = appointments.stream()
                 .filter(a -> a.getStaff() != null && a.getStaff().getId().equals(getCurrentUserId()))
                 .map(AppointmentResponse::from)
@@ -191,7 +191,7 @@ public ResponseEntity<ApiResponse<List<AppointmentResponse>>> getCustomerAppoint
             @RequestParam Long staffId,
             @RequestParam Long serviceId,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date) {
-        List<AvailableSlotResponse> slots = workingScheduleService.getAvailableSlots(staffId, serviceId, date);
+        List<AvailableSlotResponse> slots = WorkingScheduleServiceImpl.getAvailableSlots(staffId, serviceId, date);
         return ok(slots, "Available time slots retrieved");
     }
 
@@ -208,7 +208,7 @@ public ResponseEntity<ApiResponse<List<AppointmentResponse>>> getCustomerAppoint
     
     
     // Find user by email and get their ID
-    return userService.getUserByEmail(email)
+    return UserServiceImpl.getUserByEmail(email)
             .orElseThrow(() -> new NotFoundException("User not found with email: " + email))
             .getId();
 }

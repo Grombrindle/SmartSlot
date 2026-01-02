@@ -91,7 +91,7 @@
 	at java.base/java.util.Optional.orElseGet(Optional.java:364)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'userService': No qualifying bean of type 'com.appointment.system.service.UserService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'UserServiceImpl': No qualifying bean of type 'com.appointment.system.service.UserServiceImpl' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:766)
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:747)
 	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146)
@@ -121,7 +121,7 @@ Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Err
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:247)
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.lambda$loadContext$0(DefaultCacheAwareContextLoaderDelegate.java:167)
 	... 21 more
-Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.appointment.system.service.UserService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.appointment.system.service.UserServiceImpl' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:2297)
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1725)
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651)
@@ -142,7 +142,7 @@ Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No q
 
 2025-12-26T01:09:00.242+03:00  INFO 12768 --- [appointment-system] [           main] c.a.s.c.UserControllerExceptionTest      : Starting UserControllerExceptionTest using Java 17.0.15 with PID 12768 (started by Damasco in C:\Users\Damasco\SpringBoot\appointment-system)
 2025-12-26T01:09:00.242+03:00  INFO 12768 --- [appointment-system] [           main] c.a.s.c.UserControllerExceptionTest      : No active profile set, falling back to 1 default profile: "default"
-2025-12-26T01:09:00.395+03:00  WARN 12768 --- [appointment-system] [           main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'userService': No qualifying bean of type 'com.appointment.system.service.UserService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2025-12-26T01:09:00.395+03:00  WARN 12768 --- [appointment-system] [           main] o.s.w.c.s.GenericWebApplicationContext   : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'UserServiceImpl': No qualifying bean of type 'com.appointment.system.service.UserServiceImpl' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 2025-12-26T01:09:00.401+03:00  INFO 12768 --- [appointment-system] [           main] .s.b.a.l.ConditionEvaluationReportLogger : 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
@@ -154,7 +154,7 @@ APPLICATION FAILED TO START
 
 Description:
 
-Field userService in com.appointment.system.controller.UserController required a bean of type 'com.appointment.system.service.UserService' that could not be found.
+Field UserServiceImpl in com.appointment.system.controller.UserController required a bean of type 'com.appointment.system.service.UserServiceImpl' that could not be found.
 
 The injection point has the following annotations:
 	- @org.springframework.beans.factory.annotation.Autowired(required=true)
@@ -162,7 +162,7 @@ The injection point has the following annotations:
 
 Action:
 
-Consider defining a bean of type 'com.appointment.system.service.UserService' in your configuration.
+Consider defining a bean of type 'com.appointment.system.service.UserServiceImpl' in your configuration.
 
 2025-12-26T01:09:00.423+03:00  WARN 12768 --- [appointment-system] [           main] o.s.test.context.TestContextManager      : Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener] to prepare test instance [com.appointment.system.controller.UserControllerExceptionTest@73cf33bd]
 
@@ -256,7 +256,7 @@ java.lang.IllegalStateException: Failed to load ApplicationContext for [WebMerge
 	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162) ~[surefire-booter-3.5.4.jar:3.5.4]
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507) ~[surefire-booter-3.5.4.jar:3.5.4]
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495) ~[surefire-booter-3.5.4.jar:3.5.4]
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'userService': No qualifying bean of type 'com.appointment.system.service.UserService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'userController': Unsatisfied dependency expressed through field 'UserServiceImpl': No qualifying bean of type 'com.appointment.system.service.UserServiceImpl' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:766) ~[spring-beans-7.0.2.jar:7.0.2]
 	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:747) ~[spring-beans-7.0.2.jar:7.0.2]
 	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:146) ~[spring-beans-7.0.2.jar:7.0.2]
@@ -286,7 +286,7 @@ Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Err
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:247) ~[spring-test-7.0.2.jar:7.0.2]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.lambda$loadContext$0(DefaultCacheAwareContextLoaderDelegate.java:167) ~[spring-test-7.0.2.jar:7.0.2]
 	... 88 common frames omitted
-Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.appointment.system.service.UserService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+Caused by: org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.appointment.system.service.UserServiceImpl' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.raiseNoMatchingBeanFound(DefaultListableBeanFactory.java:2297) ~[spring-beans-7.0.2.jar:7.0.2]
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1725) ~[spring-beans-7.0.2.jar:7.0.2]
 	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1651) ~[spring-beans-7.0.2.jar:7.0.2]

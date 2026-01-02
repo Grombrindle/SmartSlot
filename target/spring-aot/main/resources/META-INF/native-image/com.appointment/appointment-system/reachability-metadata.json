@@ -56,7 +56,7 @@
       "type": "com.appointment.system.controller.UserController",
       "fields": [
         {
-          "name": "userService"
+          "name": "UserServiceImpl"
         }
       ],
       "methods": [
@@ -164,7 +164,7 @@
       "allPublicMethods": true
     },
     {
-      "type": "com.appointment.system.service.UserService",
+      "type": "com.appointment.system.service.UserServiceImpl",
       "fields": [
         {
           "name": "userRepository"

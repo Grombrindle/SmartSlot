@@ -1,27 +1,28 @@
-package com.appointment.system.service;
-
-import java.time.LocalDateTime;
-import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.stereotype.Service;
+package com.appointment.system.service.impl;
 
 import com.appointment.system.enums.AppointmentStatus;
 import com.appointment.system.model.NotificationMessage;
+import com.appointment.system.service.interfaces.WebSocketNotificationService;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
 
 @Service
-public class WebSocketNotificationService {
+public class WebSocketNotificationServiceImpl implements WebSocketNotificationService {
     
     private final SimpMessagingTemplate messagingTemplate;
     
-    public WebSocketNotificationService(SimpMessagingTemplate messagingTemplate) {
+    public WebSocketNotificationServiceImpl(SimpMessagingTemplate messagingTemplate) {
         this.messagingTemplate = messagingTemplate;
     }
     
-    // Send to all subscribed users
+    @Override
     public void sendGlobalNotification(NotificationMessage notification) {
         messagingTemplate.convertAndSend("/topic/global-notifications", notification);
     }
     
-    // Send to specific user
+    @Override
     public void sendPrivateNotification(String userId, NotificationMessage notification) {
         messagingTemplate.convertAndSendToUser(
             userId,
@@ -30,7 +31,7 @@ public class WebSocketNotificationService {
         );
     }
     
-    // Specific appointment notifications
+    @Override
     public void sendAppointmentNotification(Long appointmentId, NotificationMessage notification) {
         messagingTemplate.convertAndSend(
             "/topic/appointments/" + appointmentId,
@@ -38,7 +39,7 @@ public class WebSocketNotificationService {
         );
     }
     
-    // Notify when appointment status changes
+    @Override
     public void notifyAppointmentStatusChange(Long appointmentId, 
                                               AppointmentStatus oldStatus, 
                                               AppointmentStatus newStatus,

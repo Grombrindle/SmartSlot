@@ -173,7 +173,7 @@ public class AppointmentSystemApplication__BeanFactoryRegistrations {
     beanFactory.registerBeanDefinition("dataLoader", DataLoader__BeanDefinitions.getDataLoaderBeanDefinition());
     beanFactory.registerBeanDefinition("homeController", HomeController__BeanDefinitions.getHomeControllerBeanDefinition());
     beanFactory.registerBeanDefinition("userController", UserController__BeanDefinitions.getUserControllerBeanDefinition());
-    beanFactory.registerBeanDefinition("userService", UserService__BeanDefinitions.getUserServiceBeanDefinition());
+    beanFactory.registerBeanDefinition("UserServiceImpl", UserService__BeanDefinitions.getUserServiceBeanDefinition());
     beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.AutoConfigurationPackages", AutoConfigurationPackages__BeanDefinitions.BasePackages.getAutoConfigurationPackagesBeanDefinition());
     beanFactory.registerBeanDefinition("org.springframework.boot.autoconfigure.context.PropertyPlaceholderAutoConfiguration", PropertyPlaceholderAutoConfiguration__BeanDefinitions.getPropertyPlaceholderAutoConfigurationBeanDefinition());
     beanFactory.registerBeanDefinition("propertySourcesPlaceholderConfigurer", PropertyPlaceholderAutoConfiguration__BeanDefinitions.getPropertySourcesPlaceholderConfigurerBeanDefinition());

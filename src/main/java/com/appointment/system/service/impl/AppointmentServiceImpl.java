@@ -1,4 +1,4 @@
-package com.appointment.system.service;
+package com.appointment.system.service.impl;
 
 import com.appointment.system.dto.Requests.AppointmentRequestDTO;
 import com.appointment.system.dto.Requests.UpdateAppointmentStatusRequestDTO;
@@ -13,6 +13,9 @@ import com.appointment.system.repository.AppointmentRepository;
 import com.appointment.system.repository.ServiceRepository;
 import com.appointment.system.repository.UserRepository;
 import com.appointment.system.repository.WorkingScheduleRepository;
+import com.appointment.system.service.interfaces.AppointmentService;
+import com.appointment.system.service.interfaces.WebSocketNotificationService;
+// import Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.DayOfWeek;
@@ -25,19 +28,19 @@ import java.util.Optional;
 
 @org.springframework.stereotype.Service
 @Transactional
-public class AppointmentService {
+public class AppointmentServiceImpl implements AppointmentService {
     
     private final AppointmentRepository appointmentRepository;
     private final UserRepository userRepository;
     private final ServiceRepository serviceRepository;
     private final WorkingScheduleRepository workingScheduleRepository;
-     private final WebSocketNotificationService notificationService;
+    private final WebSocketNotificationService notificationService;
     
-    public AppointmentService(AppointmentRepository appointmentRepository,
-                             UserRepository userRepository,
-                             ServiceRepository serviceRepository,
-                             WorkingScheduleRepository workingScheduleRepository,
-                            WebSocketNotificationService notificationService) {
+    public AppointmentServiceImpl(AppointmentRepository appointmentRepository,
+                                  UserRepository userRepository,
+                                  ServiceRepository serviceRepository,
+                                  WorkingScheduleRepository workingScheduleRepository,
+                                  WebSocketNotificationService notificationService) {
         this.appointmentRepository = appointmentRepository;
         this.userRepository = userRepository;
         this.serviceRepository = serviceRepository;
@@ -45,16 +48,20 @@ public class AppointmentService {
         this.notificationService = notificationService;
     }
     
+    @Override
     public Optional<Appointment> getAppointmentById(Long id) {
-    return appointmentRepository.findById(id);
-}
-
-public void deleteAppointment(Long id) {
-    if (!appointmentRepository.existsById(id)) {
-        throw new NotFoundException("Appointment not found");
+        return appointmentRepository.findById(id);
     }
-    appointmentRepository.deleteById(id);
-}
+    
+    @Override
+    public void deleteAppointment(Long id) {
+        if (!appointmentRepository.existsById(id)) {
+            throw new NotFoundException("Appointment not found");
+        }
+        appointmentRepository.deleteById(id);
+    }
+    
+    @Override
     public Appointment bookAppointment(AppointmentRequestDTO requestDTO, Long customerId) {
         // Get customer
         User customer = userRepository.findById(customerId)
@@ -108,8 +115,6 @@ public void deleteAppointment(Long id) {
         // 4. Check for overlapping appointments
         checkForOverlappingAppointments(staff, appointmentDateTime, 
                                        appointmentDateTime.plusMinutes(service.getDuration()));
-        
-        // 5. Additional business rules can be added here
     }
     
     private void validateWorkingHours(User staff, LocalDateTime appointmentDateTime, int duration) {
@@ -150,6 +155,7 @@ public void deleteAppointment(Long id) {
         }
     }
     
+    @Override
     public Appointment updateAppointmentStatus(Long appointmentId, UpdateAppointmentStatusRequestDTO requestDTO) {
         Appointment appointment = appointmentRepository.findById(appointmentId)
                 .orElseThrow(() -> new NotFoundException("Appointment not found"));
@@ -166,9 +172,8 @@ public void deleteAppointment(Long id) {
         if (requestDTO.getReason() != null) {
             appointment.setNotes(requestDTO.getReason());
         }
-        // appointment.setStatus(newStatus);
-        Appointment updated = appointmentRepository.save(appointment);
-         // Send WebSocket notification
+        
+        // Send WebSocket notification
         notificationService.notifyAppointmentStatusChange(
             appointmentId,
             oldStatus,
@@ -221,22 +226,26 @@ public void deleteAppointment(Long id) {
         throw new BusinessException("Invalid status transition from " + current + " to " + next);
     }
     
+    @Override
     public List<Appointment> getAppointmentsByCustomer(Long customerId) {
         User customer = userRepository.findById(customerId)
                 .orElseThrow(() -> new NotFoundException("Customer not found"));
         return appointmentRepository.findByCustomer(customer);
     }
     
+    @Override
     public List<Appointment> getAppointmentsByStaff(Long staffId) {
         User staff = userRepository.findById(staffId)
                 .orElseThrow(() -> new NotFoundException("Staff not found"));
         return appointmentRepository.findByStaff(staff);
     }
     
+    @Override
     public List<Appointment> getPendingAppointments() {
         return appointmentRepository.findByStatus(AppointmentStatus.PENDING);
     }
     
+    @Override
     public void cancelAppointment(Long appointmentId, String reason) {
         Appointment appointment = appointmentRepository.findById(appointmentId)
                 .orElseThrow(() -> new NotFoundException("Appointment not found"));
@@ -253,6 +262,7 @@ public void deleteAppointment(Long id) {
         appointmentRepository.save(appointment);
     }
     
+    @Override
     public List<Appointment> getAppointmentsByDateRange(LocalDateTime start, LocalDateTime end) {
         return appointmentRepository.findByAppointmentDateTimeBetween(start, end);
     }

@@ -10,8 +10,8 @@ import com.appointment.system.dto.Responses.StaffResponse;
 import com.appointment.system.model.User;
 import com.appointment.system.repository.UserRepository;
 import com.appointment.system.security.JwtUtil;
-import com.appointment.system.service.CustomerService;
-import com.appointment.system.service.StaffService;
+import com.appointment.system.service.impl.CustomerServiceImpl;
+import com.appointment.system.service.impl.StaffServiceImpl;
 
 import jakarta.validation.Valid;
 
@@ -35,19 +35,19 @@ public class AuthController extends BaseController {
     private final AuthenticationManager authenticationManager;
     private final JwtUtil jwtUtil;
     private final UserRepository userRepository;
-    private final StaffService staffService;
-    private final CustomerService customerService;
+    private final StaffServiceImpl StaffServiceImpl;
+    private final CustomerServiceImpl CustomerServiceImpl;
     
     public AuthController(AuthenticationManager authenticationManager, 
                          JwtUtil jwtUtil,
                          UserRepository userRepository,
-                         StaffService staffService,
-                         CustomerService customerService) {
+                         StaffServiceImpl StaffServiceImpl,
+                         CustomerServiceImpl CustomerServiceImpl) {
         this.authenticationManager = authenticationManager;
         this.jwtUtil = jwtUtil;
         this.userRepository = userRepository;
-        this.staffService = staffService;
-        this.customerService = customerService;
+        this.StaffServiceImpl = StaffServiceImpl;
+        this.CustomerServiceImpl = CustomerServiceImpl;
     }
     
     // @PostMapping("/login")
@@ -128,7 +128,7 @@ public ResponseEntity<ApiResponse<AuthResponse>> login(@RequestBody AuthRequest 
 }
     @PostMapping("/register/staff")
     public ResponseEntity<ApiResponse<StaffResponse>> registerStaff(@Valid @RequestBody StaffRegistrationRequest request) {
-        User staffUser = staffService.registerStaff(
+        User staffUser = StaffServiceImpl.registerStaff(
             request.getName(),
             request.getEmail(),
             request.getPassword(),
@@ -140,7 +140,7 @@ public ResponseEntity<ApiResponse<AuthResponse>> login(@RequestBody AuthRequest 
     
     @PostMapping("/register/customer")
     public ResponseEntity<ApiResponse<CustomerResponse>> registerCustomer(@Valid @RequestBody CustomerRegistrationRequest request) {
-        User customerUser = customerService.registerCustomer(
+        User customerUser = CustomerServiceImpl.registerCustomer(
             request.getName(),
             request.getEmail(),
             request.getPassword(),

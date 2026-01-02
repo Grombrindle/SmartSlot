@@ -4,8 +4,8 @@ import com.appointment.system.enums.AppointmentStatus;
 import com.appointment.system.enums.UserRole;
 import com.appointment.system.model.*;
 import com.appointment.system.repository.*;
-import com.appointment.system.service.AppointmentService;
-import com.appointment.system.service.UserService;
+import com.appointment.system.service.impl.AppointmentServiceImpl;
+import com.appointment.system.service.impl.UserServiceImpl;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -23,21 +23,21 @@ public class DashboardController {
     private final ServiceRepository serviceRepository;
     private final AppointmentRepository appointmentRepository;
     private final WorkingScheduleRepository workingScheduleRepository;
-    private final UserService userService;
-    private final AppointmentService appointmentService;
+    private final UserServiceImpl UserServiceImpl;
+    private final AppointmentServiceImpl AppointmentServiceImpl;
 
     public DashboardController(UserRepository userRepository,
                               ServiceRepository serviceRepository,
                               AppointmentRepository appointmentRepository,
                               WorkingScheduleRepository workingScheduleRepository,
-                              UserService userService,
-                              AppointmentService appointmentService) {
+                              UserServiceImpl UserServiceImpl,
+                              AppointmentServiceImpl AppointmentServiceImpl) {
         this.userRepository = userRepository;
         this.serviceRepository = serviceRepository;
         this.appointmentRepository = appointmentRepository;
         this.workingScheduleRepository = workingScheduleRepository;
-        this.userService = userService;
-        this.appointmentService = appointmentService;
+        this.UserServiceImpl = UserServiceImpl;
+        this.AppointmentServiceImpl = AppointmentServiceImpl;
     }
 
     @GetMapping("/dashboard")

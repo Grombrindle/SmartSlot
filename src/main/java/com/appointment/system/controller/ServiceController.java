@@ -4,7 +4,7 @@ import com.appointment.system.dto.Requests.ServiceRequestDTO;
 import com.appointment.system.dto.Responses.ApiResponse;
 import com.appointment.system.dto.Responses.ServiceResponse;
 import com.appointment.system.model.Service;
-import com.appointment.system.service.ServiceService;
+import com.appointment.system.service.impl.ServiceServiceImpl;
 import jakarta.validation.Valid;
 
 import java.util.List;
@@ -19,17 +19,17 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/services")
 public class ServiceController extends BaseController {
     
-    private final ServiceService serviceService;
+    private final ServiceServiceImpl ServiceServiceImpl;
     
-    public ServiceController(ServiceService serviceService) {
-        this.serviceService = serviceService;
+    public ServiceController(ServiceServiceImpl ServiceServiceImpl) {
+        this.ServiceServiceImpl = ServiceServiceImpl;
     }
     
     @PostMapping
     @PreAuthorize("hasRole('ADMIN') or hasRole('STAFF')")
     public ResponseEntity<ApiResponse<ServiceResponse>> createService(
             @Valid @RequestBody ServiceRequestDTO requestDTO) {
-        Service service = serviceService.createService(requestDTO);
+        Service service = ServiceServiceImpl.createService(requestDTO);
         return created(ServiceResponse.from(service), "Service created successfully");
     }
     
@@ -38,33 +38,33 @@ public class ServiceController extends BaseController {
     public ResponseEntity<ApiResponse<ServiceResponse>> updateService(
             @PathVariable Long id,
             @Valid @RequestBody ServiceRequestDTO requestDTO) {
-        Service service = serviceService.updateService(id, requestDTO);
+        Service service = ServiceServiceImpl.updateService(id, requestDTO);
         return ok(ServiceResponse.from(service), "Service updated successfully");
     }
     
     @GetMapping("/{id}")
     public ResponseEntity<ApiResponse<ServiceResponse>> getService(@PathVariable Long id) {
-        Service service = serviceService.getServiceById(id);
+        Service service = ServiceServiceImpl.getServiceById(id);
         return ok(ServiceResponse.from(service), "Service retrieved");
     }
     
     @GetMapping
     public ResponseEntity<ApiResponse<Page<ServiceResponse>>> getAllServices(Pageable pageable) {
-        Page<Service> services = serviceService.getAllActiveServices(pageable);
+        Page<Service> services = ServiceServiceImpl.getAllActiveServices(pageable);
         Page<ServiceResponse> response = services.map(ServiceResponse::from);
         return ok(response, "Services retrieved");
     }
     
     @GetMapping("/available")
     public ResponseEntity<ApiResponse<Page<ServiceResponse>>> getAvailableServices(Pageable pageable) {
-        Page<Service> services = serviceService.getAllActiveServices(pageable);
+        Page<Service> services = ServiceServiceImpl.getAllActiveServices(pageable);
         Page<ServiceResponse> response = services.map(ServiceResponse::from);
         return ok(response, "Available services retrieved");
     }
     
     @GetMapping("/provider/{providerId}")
     public ResponseEntity<ApiResponse<List<ServiceResponse>>> getServicesByProvider(@PathVariable Long providerId) {
-        var services = serviceService.getServicesByProvider(providerId);
+        var services = ServiceServiceImpl.getServicesByProvider(providerId);
         var response = services.stream().map(ServiceResponse::from).toList();
         return ok(response, "Services retrieved for provider");
     }
@@ -72,7 +72,7 @@ public class ServiceController extends BaseController {
     @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<ApiResponse<Void>> deactivateService(@PathVariable Long id) {
-        serviceService.deactivateService(id);
+        ServiceServiceImpl.deactivateService(id);
         return ok(null, "Service deactivated successfully");
     }
 }

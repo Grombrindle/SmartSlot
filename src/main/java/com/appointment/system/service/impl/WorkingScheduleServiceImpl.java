@@ -1,4 +1,4 @@
-package com.appointment.system.service;
+package com.appointment.system.service.impl;
 
 import com.appointment.system.dto.Requests.WorkingScheduleRequestDTO;
 import com.appointment.system.dto.Responses.AvailableSlotResponse;
@@ -8,6 +8,8 @@ import com.appointment.system.model.User;
 import com.appointment.system.model.WorkingSchedule;
 import com.appointment.system.repository.UserRepository;
 import com.appointment.system.repository.WorkingScheduleRepository;
+import com.appointment.system.service.interfaces.WorkingScheduleService;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.DayOfWeek;
@@ -19,19 +21,20 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@org.springframework.stereotype.Service
+@Service
 @Transactional
-public class WorkingScheduleService {
+public class WorkingScheduleServiceImpl implements WorkingScheduleService {
     
     private final WorkingScheduleRepository workingScheduleRepository;
     private final UserRepository userRepository;
     
-    public WorkingScheduleService(WorkingScheduleRepository workingScheduleRepository, 
-                                  UserRepository userRepository) {
+    public WorkingScheduleServiceImpl(WorkingScheduleRepository workingScheduleRepository, 
+                                      UserRepository userRepository) {
         this.workingScheduleRepository = workingScheduleRepository;
         this.userRepository = userRepository;
     }
     
+    @Override
     public WorkingSchedule createSchedule(WorkingScheduleRequestDTO requestDTO) {
         User staff = userRepository.findById(requestDTO.getStaffId())
                 .orElseThrow(() -> new NotFoundException("Staff not found"));
@@ -59,6 +62,7 @@ public class WorkingScheduleService {
         return workingScheduleRepository.save(schedule);
     }
     
+    @Override
     public WorkingSchedule updateSchedule(Long id, WorkingScheduleRequestDTO requestDTO) {
         WorkingSchedule schedule = workingScheduleRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Working schedule not found"));
@@ -75,12 +79,14 @@ public class WorkingScheduleService {
         return workingScheduleRepository.save(schedule);
     }
     
+    @Override
     public List<WorkingSchedule> getSchedulesByStaff(Long staffId) {
         User staff = userRepository.findById(staffId)
                 .orElseThrow(() -> new NotFoundException("Staff not found"));
         return workingScheduleRepository.findByStaffAndIsHolidayFalse(staff);
     }
     
+    @Override
     public void deleteSchedule(Long id) {
         if (!workingScheduleRepository.existsById(id)) {
             throw new NotFoundException("Working schedule not found");
@@ -88,6 +94,7 @@ public class WorkingScheduleService {
         workingScheduleRepository.deleteById(id);
     }
     
+    @Override
     public List<AvailableSlotResponse> getAvailableSlots(Long staffId, Long serviceId, LocalDate date) {
         User staff = userRepository.findById(staffId)
                 .orElseThrow(() -> new NotFoundException("Staff not found"));
