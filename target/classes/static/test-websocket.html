@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Test</title>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+</head>
+<body>
+    <h2>WebSocket Notification Test</h2>
+    
+    <div>
+        <button onclick="connect()">Connect</button>
+        <button onclick="disconnect()">Disconnect</button>
+        <button onclick="subscribeGlobal()">Subscribe to Global</button>
+        <button onclick="subscribePrivate()">Subscribe to Private</button>
+    </div>
+    
+    <div id="subscriptions"></div>
+    <h3>Notifications:</h3>
+    <div id="notifications" style="border:1px solid #ccc; padding:10px; height:300px; overflow-y:auto;"></div>
+    
+    <script>
+        let stompClient = null;
+        let userId = 3; // Test user ID
+        
+        function connect() {
+            const socket = new SockJS('/ws');
+            stompClient = Stomp.over(socket);
+            
+            stompClient.connect({}, function(frame) {
+                addNotification('Connected: ' + frame);
+                updateSubscriptions();
+            }, function(error) {
+                addNotification('Connection error: ' + error);
+            });
+        }
+        
+        function disconnect() {
+            if (stompClient !== null) {
+                stompClient.disconnect();
+            }
+            addNotification("Disconnected");
+            document.getElementById('subscriptions').innerHTML = '';
+        }
+        
+        function subscribeGlobal() {
+            if (stompClient && stompClient.connected) {
+                stompClient.subscribe('/topic/global-notifications', function(message) {
+                    const notification = JSON.parse(message.body);
+                    addNotification(`[Global] ${notification.type}: ${notification.message}`);
+                    console.log('Global notification:', notification);
+                });
+                updateSubscriptions();
+            }
+        }
+        
+        function subscribePrivate() {
+            if (stompClient && stompClient.connected) {
+                stompClient.subscribe(`/user/${userId}/queue/private-notifications`, function(message) {
+                    const notification = JSON.parse(message.body);
+                    addNotification(`[Private] ${notification.type}: ${notification.message}`);
+                    console.log('Private notification:', notification);
+                });
+                updateSubscriptions();
+            }
+        }
+        
+        function addNotification(message) {
+            const div = document.getElementById('notifications');
+            const p = document.createElement('p');
+            p.textContent = new Date().toLocaleTimeString() + ' - ' + message;
+            div.appendChild(p);
+            div.scrollTop = div.scrollHeight;
+        }
+        
+        function updateSubscriptions() {
+            const subscriptions = document.getElementById('subscriptions');
+            subscriptions.innerHTML = `
+                <p>Connected as user ID: ${userId}</p>
+                <p>Subscriptions available:</p>
+                <ul>
+                    <li>/topic/global-notifications</li>
+                    <li>/user/${userId}/queue/private-notifications</li>
+                    <li>/topic/appointments/{id}</li>
+                </ul>
+            `;
+        }
+    </script>
+</body>
+</html>

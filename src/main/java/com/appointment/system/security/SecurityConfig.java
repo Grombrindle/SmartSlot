@@ -66,6 +66,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+        
                 .csrf(csrf -> csrf
                         // .ignoringRequestMatchers("/h2-console/**", "/api/**")
                         .ignoringRequestMatchers("/h2-console/**", "/api/**", "/ws-email/**")
@@ -85,6 +86,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/test/**").permitAll()
                         .requestMatchers("/api/users").permitAll()
                         .requestMatchers("/ws-email/**", "/ws/**").permitAll() // Add WebSocket endpoint
+                        
                         .requestMatchers("/topic/**", "/app/**").permitAll()
 
                         // Dashboard access
@@ -122,6 +124,7 @@ public class SecurityConfig {
                         UsernamePasswordAuthenticationFilter.class)
                 .headers(headers -> headers
                         .frameOptions(frame -> frame.disable()));
+                        
 
         return http.build();
     }

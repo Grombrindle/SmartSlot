@@ -17,19 +17,19 @@ public class EmailService {
     @Autowired
     private JavaMailSender mailSender;
 
-    @Bean
-    public CommandLineRunner testEmail(JavaMailSender mailSender) {
-        return args -> {
-            System.out.println("Testing email send...");
-            SimpleMailMessage message = new SimpleMailMessage();
-            message.setFrom("test@yourapp.com");
-            message.setTo("recipient@example.com");
-            message.setSubject("Test from Spring Boot");
-            message.setText("If you get this, Mailtrap config is correct.");
-            mailSender.send(message);
-            System.out.println("Test email sent. Check your Mailtrap inbox.");
-        };
-    }
+    // @Bean
+    // public CommandLineRunner testEmail(JavaMailSender mailSender) {
+    //     return args -> {
+    //         System.out.println("Testing email send...");
+    //         SimpleMailMessage message = new SimpleMailMessage();
+    //         message.setFrom("test@yourapp.com");
+    //         message.setTo("recipient@example.com");
+    //         message.setSubject("Test from Spring Boot");
+    //         message.setText("If you get this, Mailtrap config is correct.");
+    //         mailSender.send(message);
+    //         System.out.println("Test email sent. Check your Mailtrap inbox.");
+    //     };
+    // }
 
     public void sendSimpleEmail(String to, String subject, String text) {
         try {

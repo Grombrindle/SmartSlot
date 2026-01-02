@@ -31,15 +31,18 @@ public class AppointmentService {
     private final UserRepository userRepository;
     private final ServiceRepository serviceRepository;
     private final WorkingScheduleRepository workingScheduleRepository;
+     private final WebSocketNotificationService notificationService;
     
     public AppointmentService(AppointmentRepository appointmentRepository,
                              UserRepository userRepository,
                              ServiceRepository serviceRepository,
-                             WorkingScheduleRepository workingScheduleRepository) {
+                             WorkingScheduleRepository workingScheduleRepository,
+                            WebSocketNotificationService notificationService) {
         this.appointmentRepository = appointmentRepository;
         this.userRepository = userRepository;
         this.serviceRepository = serviceRepository;
         this.workingScheduleRepository = workingScheduleRepository;
+        this.notificationService = notificationService;
     }
     
     public Optional<Appointment> getAppointmentById(Long id) {
@@ -158,10 +161,20 @@ public void deleteAppointment(Long id) {
         validateStatusTransition(currentStatus, newStatus);
         
         // Update appointment
+        AppointmentStatus oldStatus = appointment.getStatus();
         appointment.setStatus(newStatus);
         if (requestDTO.getReason() != null) {
             appointment.setNotes(requestDTO.getReason());
         }
+        // appointment.setStatus(newStatus);
+        Appointment updated = appointmentRepository.save(appointment);
+         // Send WebSocket notification
+        notificationService.notifyAppointmentStatusChange(
+            appointmentId,
+            oldStatus,
+            newStatus,
+            (long)3
+        );
         
         // Set timestamps based on status
         switch (newStatus) {
